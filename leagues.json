@@ -1,0 +1,396 @@
+{
+  "leagues": [
+    {
+      "id": 1,
+      "league": "Summer Hockey",
+      "divisions": [
+        {
+          "divisionID": 1,
+          "divisionName": "Barrie",
+          "teams": [
+            {
+              "teamName": "Box Munchers",
+              "Players": "15",
+              "Division": "Elite",
+              "id": 1
+            },
+            {
+              "teamName": "Brew Crew",
+              "Players": "13",
+              "Division": "B",
+              "id": 2
+            },
+            {
+              "teamName": "Don Cherry Poppers",
+              "Players": "16",
+              "Division": "B",
+              "id": 3
+            },
+            {
+              "teamName": "Hawkstone Hellraisers",
+              "Players": "15",
+              "Division": "B",
+              "id": 4
+            },
+            {
+              "teamName": "No Regretzsky's",
+              "Players": "15",
+              "Division": "C",
+              "id": 5
+            },
+            {
+              "teamName": "Kuznetsov's Ski School",
+              "Players": "15",
+              "Division": "C",
+              "id": 6
+            },
+            {
+              "teamName": "Pucks Zyn Deep",
+              "Players": "16",
+              "Division": "B",
+              "id": 7
+            },
+            {
+              "teamName": "Upper Decky Cheddies",
+              "Players": "15",
+              "Division": "Elite",
+              "id": 8
+            }
+          ],
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-05-12",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 1
+            },
+            {
+              "week": 1,
+              "date": "2024-05-12",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 2
+            },
+            {
+              "week": 1,
+              "date": "2024-05-12",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 3
+            },
+            {
+              "week": 1,
+              "date": "2024-05-12",
+              "startTime": "21:00",
+              "endTime": "22:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 4
+            },
+            {
+              "week": 2,
+              "date": "2024-05-26",
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 5
+            },
+            {
+              "week": 2,
+              "date": "2024-05-26",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 6
+            },
+            {
+              "week": 2,
+              "date": "2024-05-26",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 7
+            },
+            {
+              "week": 2,
+              "date": "2024-05-26",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 8
+            },
+            {
+              "week": 3,
+              "date": "2024-06-02",
+              "startTime": "16:00",
+              "endTime": "17:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 9
+            },
+            {
+              "week": 3,
+              "date": "2024-06-02",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 10
+            },
+            {
+              "week": 3,
+              "date": "2024-06-02",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 11
+            },
+            {
+              "week": 3,
+              "date": "2024-06-02",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 12
+            },
+            {
+              "week": 4,
+              "date": "2024-06-09",
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 13
+            },
+            {
+              "week": 4,
+              "date": "2024-06-09",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 14
+            },
+            {
+              "week": 4,
+              "date": "2024-06-09",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 15
+            },
+            {
+              "week": 4,
+              "date": "2024-06-09",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 16
+            },
+            {
+              "week": 5,
+              "date": "2024-06-16",
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 17
+            },
+            {
+              "week": 5,
+              "date": "2024-06-16",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 18
+            },
+            {
+              "week": 5,
+              "date": "2024-06-16",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 19
+            },
+            {
+              "week": 5,
+              "date": "2024-06-16",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Centre Ice Sportsplex",
+              "rink": "Rink 1",
+              "premium": false,
+              "id": 20
+            },
+            {
+              "week": 6,
+              "date": "2024-06-23",
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 21
+            },
+            {
+              "week": 6,
+              "date": "2024-06-23",
+              "startTime": "18:00",
+              "endTime": "19:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 22
+            },
+            {
+              "week": 6,
+              "date": "2024-06-23",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 23
+            },
+            {
+              "week": 6,
+              "date": "2024-06-23",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 24
+            },
+            {
+              "week": 7,
+              "date": "2024-07-07",
+              "startTime": "19:00",
+              "endTime": "20:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 25
+            },
+            {
+              "week": 7,
+              "date": "2024-07-07",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Blue Rink",
+              "premium": false,
+              "id": 26
+            },
+            {
+              "week": 7,
+              "date": "2024-07-07",
+              "startTime": "21:00",
+              "endTime": "22:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 27
+            },
+            {
+              "week": 7,
+              "date": "2024-07-07",
+              "startTime": "22:00",
+              "endTime": "23:00",
+              "facility": "Allandale Recreation Centre",
+              "rink": "Red Rink",
+              "premium": false,
+              "id": 28
+            }
+          ]
+        },
+        {
+          "divisionID": 2,
+          "divisionName": "Calgary",
+          "numberTeams": 10
+        },
+        {
+          "divisionName": "London",
+          "teams": [],
+          "divisionID": 3
+        },
+        {
+          "divisionName": "Halifax",
+          "teams": [],
+          "divisionID": 4
+        },
+        {
+          "divisionName": "Ottawa",
+          "teams": [],
+          "divisionID": 5
+        },
+        {
+          "divisionName": "Thunder Bay",
+          "teams": [],
+          "divisionID": 6
+        },
+        {
+          "divisionName": "Kingston",
+          "teams": [],
+          "divisionID": 7
+        }
+      ]
+    },
+    {
+      "league": "Winter Hockey",
+      "divisions": [],
+      "id": 2
+    },
+    {
+      "league": "Summer Pickleball",
+      "divisions": [],
+      "id": 3
+    },
+    {
+      "league": "Summer Softball",
+      "divisions": [],
+      "id": 4
+    },
+    {
+      "league": "Fall Flag Football",
+      "divisions": [],
+      "id": 5
+    }
+  ]
+}
