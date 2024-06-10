@@ -539,6 +539,46 @@
               "id": 2
             }
           ]
+        },
+        {
+          "divisionName": "Halifax",
+          "teams": [
+            {
+              "teamName": "76ers",
+              "Players": "1",
+              "Division": "A",
+              "id": 1
+            },
+            {
+              "teamName": "Nuggets",
+              "Players": "2",
+              "Division": "A",
+              "id": 2
+            }
+          ],
+          "divisionID": 2,
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 1
+            },
+            {
+              "week": 2,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 2
+            }
+          ]
         }
       ],
       "id": 6
