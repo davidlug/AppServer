@@ -369,12 +369,33 @@
           "divisionName": "Kingston",
           "teams": [],
           "divisionID": 7
+        },
+        {
+          "divisionName": "Oshawa",
+          "teams": [],
+          "divisionID": 8
         }
       ]
     },
     {
       "league": "Winter Hockey",
-      "divisions": [],
+      "divisions": [
+        {
+          "divisionName": "Kingston",
+          "teams": [],
+          "divisionID": 1
+        },
+        {
+          "divisionName": "Ottawa",
+          "teams": [],
+          "divisionID": 2
+        },
+        {
+          "divisionName": "Halifax",
+          "teams": [],
+          "divisionID": 3
+        }
+      ],
       "id": 2
     },
     {
@@ -389,8 +410,178 @@
     },
     {
       "league": "Fall Flag Football",
-      "divisions": [],
+      "divisions": [
+        {
+          "divisionName": "Sudbury",
+          "teams": [
+            {
+              "teamName": "49ers",
+              "Players": "23",
+              "Division": "Elite",
+              "id": 1
+            }
+          ],
+          "divisionID": 1,
+          "timeslots": [
+            {
+              "week": 2,
+              "date": "2024-06-19",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "1",
+              "rink": "1",
+              "premium": false,
+              "id": 1
+            }
+          ]
+        },
+        {
+          "divisionName": "London",
+          "teams": [],
+          "divisionID": 2,
+          "timeslots": [
+            {
+              "week": 0,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": true,
+              "id": 1
+            },
+            {
+              "week": 0,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 2
+            },
+            {
+              "week": 0,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "3",
+              "rink": "3",
+              "premium": false,
+              "id": 3
+            },
+            {
+              "week": 0,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "5",
+              "rink": "5",
+              "premium": false,
+              "id": 4
+            }
+          ]
+        }
+      ],
       "id": 5
+    },
+    {
+      "league": "Spring Flag Football",
+      "divisions": [
+        {
+          "divisionName": "London",
+          "teams": [
+            {
+              "teamName": "Blackhawks",
+              "Players": "13",
+              "Division": "B",
+              "id": 1
+            },
+            {
+              "teamName": "Kings",
+              "Players": "12",
+              "Division": "Elite",
+              "id": 2
+            },
+            {
+              "teamName": "Predators",
+              "Players": "5",
+              "Division": "Elite",
+              "id": 3
+            },
+            {
+              "teamName": "Canucks",
+              "Players": "5",
+              "Division": "B",
+              "id": 4
+            }
+          ],
+          "divisionID": 1,
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-06-10",
+              "startTime": "20:00",
+              "endTime": "21:00",
+              "facility": "1",
+              "rink": "1",
+              "premium": true,
+              "id": 1
+            },
+            {
+              "week": 1,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "10:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 2
+            }
+          ]
+        },
+        {
+          "divisionName": "Halifax",
+          "teams": [
+            {
+              "teamName": "76ers",
+              "Players": "1",
+              "Division": "A",
+              "id": 1
+            },
+            {
+              "teamName": "Nuggets",
+              "Players": "2",
+              "Division": "A",
+              "id": 2
+            }
+          ],
+          "divisionID": 2,
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 1
+            },
+            {
+              "week": 2,
+              "date": "2024-06-09",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "2",
+              "rink": "2",
+              "premium": false,
+              "id": 2
+            }
+          ]
+        }
+      ],
+      "id": 6
     }
   ]
 }

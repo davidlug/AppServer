@@ -58,6 +58,129 @@ app.get('/timeslots/:divisionID', function (req, res){
 })
 
 
+const DATA_FILE = './leagues.json';
+
+// Utility function to read the JSON data file
+const readDataFile = (callback) => {
+    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading file:", err);
+            callback(err, null);
+        } else {
+            try {
+                const jsonData = JSON.parse(data);
+                callback(null, jsonData);
+            } catch (parseErr) {
+                console.error('Error parsing JSON:', parseErr);
+                callback(parseErr, null);
+            }
+        }
+    });
+};
+
+// Utility function to write to the JSON data file
+const writeDataFile = (data, callback) => {
+    fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2), 'utf8', (err) => {
+        if (err) {
+            console.error("Error writing file:", err);
+            callback(err);
+        } else {
+            callback(null);
+        }
+    });
+};
+
+// Get teams for a specific league and division
+app.get('/leagues/:leagueID/divisions/:divisionID/teams', (req, res) => {
+    const leagueID = parseInt(req.params.leagueID);
+    const divisionID = parseInt(req.params.divisionID);
+
+    readDataFile((err, data) => {
+        if (err) {
+            res.status(500).send("Error reading file");
+            return;
+        }
+
+        const league = data.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        res.json({ divisionName: division.divisionName, teams: division.teams || [] });
+    });
+});
+
+// Get timeslots for a specific league and division
+app.get('/leagues/:leagueID/divisions/:divisionID/timeslots', (req, res) => {
+    const leagueID = parseInt(req.params.leagueID);
+    const divisionID = parseInt(req.params.divisionID);
+
+    readDataFile((err, data) => {
+        if (err) {
+            res.status(500).send("Error reading file");
+            return;
+        }
+
+        const league = data.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        res.json({ timeslots: division.timeslots || [] });
+    });
+});
+
+app.get('/leagues/:leagueID/divisions/:divisionID/teams', function (req, res) {
+    const leagueID = parseInt(req.params.leagueID);
+    const divisionID = parseInt(req.params.divisionID);
+
+    fs.readFile(__dirname + "/leagues.json", 'utf8', function (err, data) {
+        if (err) {
+            console.error("Error reading file:", err);
+            res.status(500).send("Error reading file");
+            return;
+        }
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (parseErr) {
+            console.error('Error parsing JSON:', parseErr);
+            res.status(500).json({ error: "Failed to parse data file" });
+            return;
+        }
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        res.header("Content-Type", "application/json");
+        res.send(JSON.stringify({ divisionName: division.divisionName, teams: division.teams || [] }));
+    });
+});
+
 
 app.get('/teams/:divisionID', function (req, res){
 
@@ -205,7 +328,6 @@ app.post('/league/:leagueID/division/:divisionID/timeslot', function (req, res) 
             return;
         }
 
-
         const newTimeSlot = req.body;
         const leagueID = parseInt(req.params.leagueID, 10);
         const divisionID = parseInt(req.params.divisionID, 10);
@@ -218,15 +340,18 @@ app.post('/league/:leagueID/division/:divisionID/timeslot', function (req, res) 
 
         console.log("Current league: ", league);
 
-
         const division = league.divisions.find(division => division.divisionID === divisionID);
-
-
-
         if (!division) {
             res.status(404).json({ error: "This Division not found" });
             return;
         }
+
+        // Ensure timeslots array is initialized
+        if (!Array.isArray(division.timeslots)) {
+            division.timeslots = [];
+        }
+
+        console.log(division.timeslots.length);
 
         const newTimeslotID = division.timeslots.length > 0 
             ? Math.max(...division.timeslots.map(timeslot => timeslot.id)) + 1 
@@ -249,6 +374,7 @@ app.post('/league/:leagueID/division/:divisionID/timeslot', function (req, res) 
         });
     });
 });
+
 
 
 app.post('/leagues/:leagueID/division', function (req, res) {
