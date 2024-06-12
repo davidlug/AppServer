@@ -66,7 +66,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 1
+              "id": 1,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                },
+                "awayTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                }
+              }
             },
             {
               "week": 1,
@@ -76,7 +91,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 2
+              "id": 2,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                },
+                "awayTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                }
+              }
             },
             {
               "week": 1,
@@ -86,7 +116,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 3
+              "id": 3,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                }
+              }
             },
             {
               "week": 1,
@@ -96,7 +141,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 4
+              "id": 4,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                },
+                "awayTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                }
+              }
             },
             {
               "week": 2,
@@ -106,7 +166,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 5
+              "id": 5,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                },
+                "awayTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                }
+              }
             },
             {
               "week": 2,
@@ -116,7 +191,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 6
+              "id": 6,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                }
+              }
             },
             {
               "week": 2,
@@ -126,7 +216,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 7
+              "id": 7,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                },
+                "awayTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                }
+              }
             },
             {
               "week": 2,
@@ -136,7 +241,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 8
+              "id": 8,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                }
+              }
             },
             {
               "week": 3,
@@ -146,7 +266,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 9
+              "id": 9,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                }
+              }
             },
             {
               "week": 3,
@@ -156,7 +291,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 10
+              "id": 10,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                },
+                "awayTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                }
+              }
             },
             {
               "week": 3,
@@ -166,7 +316,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 11
+              "id": 11,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                },
+                "awayTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                }
+              }
             },
             {
               "week": 3,
@@ -176,7 +341,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 12
+              "id": 12,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                },
+                "awayTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                }
+              }
             },
             {
               "week": 4,
@@ -186,7 +366,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 13
+              "id": 13,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                }
+              }
             },
             {
               "week": 4,
@@ -196,7 +391,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 14
+              "id": 14,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                },
+                "awayTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                }
+              }
             },
             {
               "week": 4,
@@ -206,7 +416,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 15
+              "id": 15,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                },
+                "awayTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                }
+              }
             },
             {
               "week": 4,
@@ -216,7 +441,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 16
+              "id": 16,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                },
+                "awayTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                }
+              }
             },
             {
               "week": 5,
@@ -226,7 +466,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 17
+              "id": 17,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                },
+                "awayTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                }
+              }
             },
             {
               "week": 5,
@@ -236,7 +491,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 18
+              "id": 18,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                }
+              }
             },
             {
               "week": 5,
@@ -246,7 +516,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 19
+              "id": 19,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                }
+              }
             },
             {
               "week": 5,
@@ -256,7 +541,22 @@
               "facility": "Centre Ice Sportsplex",
               "rink": "Rink 1",
               "premium": false,
-              "id": 20
+              "id": 20,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                },
+                "awayTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                }
+              }
             },
             {
               "week": 6,
@@ -266,7 +566,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 21
+              "id": 21,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                },
+                "awayTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                }
+              }
             },
             {
               "week": 6,
@@ -276,7 +591,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 22
+              "id": 22,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                }
+              }
             },
             {
               "week": 6,
@@ -286,7 +616,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 23
+              "id": 23,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                },
+                "awayTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                }
+              }
             },
             {
               "week": 6,
@@ -296,7 +641,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 24
+              "id": 24,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                },
+                "awayTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                }
+              }
             },
             {
               "week": 7,
@@ -306,7 +666,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 25
+              "id": 25,
+              "weight": 0,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
+                },
+                "awayTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
+                }
+              }
             },
             {
               "week": 7,
@@ -316,7 +691,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Blue Rink",
               "premium": false,
-              "id": 26
+              "id": 26,
+              "weight": 1,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Box Munchers",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 1
+                },
+                "awayTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "15",
+                  "Division": "B",
+                  "id": 4
+                }
+              }
             },
             {
               "week": 7,
@@ -326,7 +716,22 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 27
+              "id": 27,
+              "weight": 2,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "Brew Crew",
+                  "Players": "13",
+                  "Division": "B",
+                  "id": 2
+                }
+              }
             },
             {
               "week": 7,
@@ -336,14 +741,1070 @@
               "facility": "Allandale Recreation Centre",
               "rink": "Red Rink",
               "premium": false,
-              "id": 28
+              "id": 28,
+              "weight": 3,
+              "match": {
+                "homeTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
+                },
+                "awayTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                }
+              }
             }
+          ],
+          "schedule": [
+            [
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 1,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  },
+                  "awayTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  }
+                }
+              },
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 2,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 3,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              },
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "21:00",
+                "endTime": "22:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 4,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  },
+                  "awayTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "17:00",
+                "endTime": "18:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 5,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 6,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 7,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 8,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 3,
+                "date": "2024-06-02",
+                "startTime": "16:00",
+                "endTime": "17:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 9,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              },
+              {
+                "week": 3,
+                "date": "2024-06-02",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 10,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  },
+                  "awayTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  }
+                }
+              },
+              {
+                "week": 3,
+                "date": "2024-06-02",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 11,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  }
+                }
+              },
+              {
+                "week": 3,
+                "date": "2024-06-02",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 12,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  },
+                  "awayTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 4,
+                "date": "2024-06-09",
+                "startTime": "17:00",
+                "endTime": "18:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 13,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
+                "week": 4,
+                "date": "2024-06-09",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 14,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  },
+                  "awayTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  }
+                }
+              },
+              {
+                "week": 4,
+                "date": "2024-06-09",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 15,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  },
+                  "awayTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  }
+                }
+              },
+              {
+                "week": 4,
+                "date": "2024-06-09",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 16,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  },
+                  "awayTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 5,
+                "date": "2024-06-16",
+                "startTime": "17:00",
+                "endTime": "18:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 17,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  },
+                  "awayTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  }
+                }
+              },
+              {
+                "week": 5,
+                "date": "2024-06-16",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 18,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              },
+              {
+                "week": 5,
+                "date": "2024-06-16",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 19,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  }
+                }
+              },
+              {
+                "week": 5,
+                "date": "2024-06-16",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 20,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  },
+                  "awayTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 6,
+                "date": "2024-06-23",
+                "startTime": "17:00",
+                "endTime": "18:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 21,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  },
+                  "awayTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  }
+                }
+              },
+              {
+                "week": 6,
+                "date": "2024-06-23",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 22,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              },
+              {
+                "week": 6,
+                "date": "2024-06-23",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 23,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  }
+                }
+              },
+              {
+                "week": 6,
+                "date": "2024-06-23",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 24,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  },
+                  "awayTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 7,
+                "date": "2024-07-07",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 25,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  },
+                  "awayTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  }
+                }
+              },
+              {
+                "week": 7,
+                "date": "2024-07-07",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Blue Rink",
+                "premium": false,
+                "id": 26,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Box Munchers",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 1
+                  },
+                  "awayTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "15",
+                    "Division": "B",
+                    "id": 4
+                  }
+                }
+              },
+              {
+                "week": 7,
+                "date": "2024-07-07",
+                "startTime": "21:00",
+                "endTime": "22:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 27,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "Brew Crew",
+                    "Players": "13",
+                    "Division": "B",
+                    "id": 2
+                  }
+                }
+              },
+              {
+                "week": 7,
+                "date": "2024-07-07",
+                "startTime": "22:00",
+                "endTime": "23:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 28,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  },
+                  "awayTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  }
+                }
+              }
+            ]
           ]
         },
         {
           "divisionID": 2,
           "divisionName": "Calgary",
-          "numberTeams": 10
+          "numberTeams": 10,
+          "teams": [
+            {
+              "teamName": "Camel Toews",
+              "Players": 15,
+              "Division": "A",
+              "id": 1
+            },
+            {
+              "teamName": "Cougar Hunters",
+              "Players": 13,
+              "Division": "B",
+              "id": 2
+            },
+            {
+              "teamName": "Grey Eagles",
+              "Players": 16,
+              "Division": "A",
+              "id": 3
+            },
+            {
+              "teamName": "Just the Tip Ins",
+              "Players": 15,
+              "Division": "B",
+              "id": 4
+            },
+            {
+              "teamName": "The hibjabs",
+              "Players": 16,
+              "Division": "B",
+              "id": 5
+            },
+            {
+              "teamName": "Waste Management Rhinos",
+              "Players": 7,
+              "id": 6
+            },
+            {
+              "teamName": "Dummy Team",
+              "Players": "13",
+              "Division": "B",
+              "id": 7
+            }
+          ],
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-05-11",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 1
+            },
+            {
+              "week": 1,
+              "date": "2024-05-11",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 2
+            },
+            {
+              "week": 2,
+              "date": "2024-05-25",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 3
+            },
+            {
+              "week": 2,
+              "date": "2024-05-25",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 4
+            },
+            {
+              "week": 2,
+              "date": "2024-05-25",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 5
+            },
+            {
+              "week": 3,
+              "date": "2024-06-01",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 6
+            },
+            {
+              "week": 3,
+              "date": "2024-06-01",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 7
+            },
+            {
+              "week": 3,
+              "date": "2024-06-01",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 8
+            },
+            {
+              "week": 4,
+              "date": "2024-06-08",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 9
+            },
+            {
+              "week": 4,
+              "date": "2024-06-08",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 10
+            },
+            {
+              "week": 4,
+              "date": "2024-06-09",
+              "startTime": "8:30 PM",
+              "endTime": "9:30 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 11
+            },
+            {
+              "week": 5,
+              "date": "2024-06-15",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 12
+            },
+            {
+              "week": 5,
+              "date": "2024-06-15",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 13
+            },
+            {
+              "week": 5,
+              "date": "2024-06-15",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Jimmie Condon Arena",
+              "rink": "Jimmie Condon Arena - Ice",
+              "premium": "No",
+              "id": 14
+            },
+            {
+              "week": 6,
+              "date": "2024-06-22",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 15
+            },
+            {
+              "week": 6,
+              "date": "2024-06-22",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 16
+            },
+            {
+              "week": 7,
+              "date": "2024-07-06",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 17
+            },
+            {
+              "week": 7,
+              "date": "2024-07-06",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 18
+            },
+            {
+              "week": 7,
+              "date": "2024-07-06",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 19
+            },
+            {
+              "week": 8,
+              "date": "2024-07-13",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 20
+            },
+            {
+              "week": 8,
+              "date": "2024-07-13",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 21
+            },
+            {
+              "week": 8,
+              "date": "2024-07-13",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 22
+            },
+            {
+              "week": 9,
+              "date": "2024-07-20",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 23
+            },
+            {
+              "week": 9,
+              "date": "2024-07-20",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 24
+            },
+            {
+              "week": 9,
+              "date": "2024-07-20",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 25
+            },
+            {
+              "week": 10,
+              "date": "2024-07-27",
+              "startTime": "5:45 PM",
+              "endTime": "6:45 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 26
+            },
+            {
+              "week": 10,
+              "date": "2024-07-27",
+              "startTime": "7:00 PM",
+              "endTime": "8:00 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 27
+            },
+            {
+              "week": 10,
+              "date": "2024-07-27",
+              "startTime": "8:15 PM",
+              "endTime": "9:15 PM",
+              "facility": "Southland Leisure Centre",
+              "rink": "Joseph Kryczka Arena",
+              "premium": "No",
+              "id": 28
+            }
+          ]
         },
         {
           "divisionName": "London",
@@ -374,6 +1835,11 @@
           "divisionName": "Oshawa",
           "teams": [],
           "divisionID": 8
+        },
+        {
+          "divisionName": "Sault St. Marie",
+          "teams": [],
+          "divisionID": 9
         }
       ]
     },
@@ -481,6 +1947,36 @@
               "id": 4
             }
           ]
+        },
+        {
+          "divisionName": "Ottawa",
+          "teams": [
+            {
+              "teamName": "Bills",
+              "Players": "53",
+              "Division": "Elite",
+              "id": 1
+            },
+            {
+              "teamName": "Chiefs",
+              "Players": "53",
+              "Division": "Elite",
+              "id": 2
+            }
+          ],
+          "divisionID": 3,
+          "timeslots": [
+            {
+              "week": 1,
+              "date": "2024-06-10",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "Arrowhead Field",
+              "rink": "Main Field",
+              "premium": true,
+              "id": 1
+            }
+          ]
         }
       ],
       "id": 5
@@ -576,6 +2072,46 @@
               "facility": "2",
               "rink": "2",
               "premium": false,
+              "id": 2
+            }
+          ]
+        },
+        {
+          "divisionName": "St. John's",
+          "teams": [
+            {
+              "teamName": "Eagles",
+              "Players": "13",
+              "Division": "A",
+              "id": 1
+            },
+            {
+              "teamName": "Cowboys",
+              "Players": "13",
+              "Division": "A",
+              "id": 2
+            }
+          ],
+          "divisionID": 3,
+          "timeslots": [
+            {
+              "week": 2,
+              "date": "2024-06-17",
+              "startTime": "21:00",
+              "endTime": "22:00",
+              "facility": "Lincoln Financial Field",
+              "rink": "Main Rink",
+              "premium": true,
+              "id": 1
+            },
+            {
+              "week": 1,
+              "date": "2024-06-10",
+              "startTime": "10:00",
+              "endTime": "11:00",
+              "facility": "A&T Stadium",
+              "rink": "Main Field",
+              "premium": true,
               "id": 2
             }
           ]

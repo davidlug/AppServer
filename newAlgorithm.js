@@ -98,6 +98,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams) {
     for (let k = 0; k < scheduleByWeeks.length; k++) {
         let weekMatchups = [...seasonMatchups];
         var teamCopy = [...teams];
+
         for (let i = 0; i < scheduleByWeeks[k].length; i++) {
             if (weekMatchups.length === 0) {
                 return scheduleByWeeks;
@@ -116,7 +117,9 @@ function generateSchedule(matchups, scheduleByWeeks, teams) {
                 !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
             );
         }
+
         teams = [...teamCopy];
+        //console.log(k);
     }
     return scheduleByWeeks;
 }

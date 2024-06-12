@@ -78,9 +78,15 @@ public class SchedulingDriver {
         teams.add(new Team("Team 5", "A")); // 3 v 5
         teams.add(new Team("Team 6", "A"));
 
-        teams.add(new Team("Team 7", "A"));
-        teams.add(new Team("Team 8", "A"));
-        //teams.add(new Team("Team 9", "A"));
+        // teams.add(new Team("Team 7", "A"));
+        // teams.add(new Team("Team 8", "A"));
+        // teams.add(new Team("Team 9", "A"));
+        // teams.add(new Team("Team 10", "A"));
+        // teams.add(new Team("Team 11", "A"));
+        // teams.add(new Team("Team 12", "A"));
+        // teams.add(new Team("Team 13", "A"));
+        // teams.add(new Team("Team 14", "A"));
+
         ArrayList<Team> teamCopy = (ArrayList<Team>) teams.clone();
         /*
          * for(int i = 0; i < numTeams; i++)
@@ -102,63 +108,56 @@ public class SchedulingDriver {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             timeSlots = new TimeSlot[] {
-                  
-                new TimeSlot(sdf.parse("2024-05-12 18:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 19:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 20:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 21:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 17:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 18:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 19:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 20:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 16:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 18:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 19:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 20:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-09 17:00:00"), calendar, 4,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 18:00:00"), calendar, 4,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 19:00:00"), calendar, 4,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 20:00:00"), calendar, 4,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 17:00:00"), calendar, 5,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 18:00:00"), calendar, 5,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 19:00:00"), calendar, 5,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 20:00:00"), calendar, 5,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-23 17:00:00"), calendar, 6,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-23 18:00:00"), calendar, 6,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-23 19:00:00"), calendar, 6,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-23 20:00:00"), calendar, 6,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-07 19:00:00"), calendar, 7,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-07 20:00:00"), calendar, 7,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-07 21:00:00"), calendar, 7,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-07 22:00:00"), calendar, 7,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+
+                    new TimeSlot(sdf.parse("2024-05-12 15:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 16:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 17:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 18:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 19:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 20:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 21:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-15 18:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-15 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-15 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-15 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-22 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-22 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-22 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-05-26 17:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-26 18:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-26 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-26 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-29 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-29 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-29 21:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-02 17:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-02 18:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-02 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-02 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-05 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-05 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-05 21:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 17:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 18:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-09 21:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                    new TimeSlot(sdf.parse("2024-06-16 17:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-16 18:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-16 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-16 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-19 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-19 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-06-19 21:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-23 17:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-23 18:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-23 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-23 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-26 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-26 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-07-26 21:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
             };
 
             for (int i = 0; i < timeSlots.length; i++) {
@@ -205,110 +204,112 @@ public class SchedulingDriver {
 
         List<List<TimeSlot>> returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
 
-        
         int num = 0;
         boolean goodSchedule = false;
         boolean balancedSchedule = false;
         boolean dupeTeam = true;
         ArrayList<Double> weightsCopy = new ArrayList<>();
 
-       
-            while (goodSchedule == false || balancedSchedule == false || dupeTeam) {
-                // Reset flags and variables
-                goodSchedule = true;
-                balancedSchedule = false;
-                dupeTeam = false;
-            
-                // Check if the schedule is fully filled
-                for (int k = 0; k < returnSchedule.size(); k++) {
-                    for (int i = 0; i < returnSchedule.get(k).size(); i++) {
-                        if (returnSchedule.get(k).get(i).getMatch() == null) {
-                            returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
-                            num += 1;
-                            goodSchedule = false;
-                            break;
-                        }
-                    }
-                    if (!goodSchedule) {
+        while (goodSchedule == false || balancedSchedule == false || dupeTeam) {
+            // Reset flags and variables
+            goodSchedule = true;
+            balancedSchedule = false;
+            dupeTeam = false;
+
+            // Check if the schedule is fully filled
+            for (int k = 0; k < returnSchedule.size(); k++) {
+                for (int i = 0; i < returnSchedule.get(k).size(); i++) {
+                    if (returnSchedule.get(k).get(i).getMatch() == null) {
+                        returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
+                        num += 1;
+                        goodSchedule = false;
                         break;
                     }
                 }
-            
-                if (goodSchedule) {
-                    // Update team schedule weights
-                    for (int k = 0; k < returnSchedule.size(); k++) {
-                        for (int i = 0; i < returnSchedule.get(k).size(); i++) {
-                            for (int p = 0; p < teamCopy.size(); p++) {
-                                if (teamCopy.get(p).getTeamName().equals(returnSchedule.get(k).get(i).getMatch().getHomeTeam().getTeamName()) || 
-                                    teamCopy.get(p).getTeamName().equals(returnSchedule.get(k).get(i).getMatch().getAwayTeam().getTeamName())) {
-                                    teamCopy.get(p).setScheduleWeight(returnSchedule.get(k).get(i).getWeight());
-                                }
+                if (!goodSchedule) {
+                    break;
+                }
+            }
+
+            if (goodSchedule) {
+                // Update team schedule weights
+                for (int k = 0; k < returnSchedule.size(); k++) {
+                    for (int i = 0; i < returnSchedule.get(k).size(); i++) {
+                        for (int p = 0; p < teamCopy.size(); p++) {
+                            if (teamCopy.get(p).getTeamName()
+                                    .equals(returnSchedule.get(k).get(i).getMatch().getHomeTeam().getTeamName()) ||
+                                    teamCopy.get(p).getTeamName().equals(
+                                            returnSchedule.get(k).get(i).getMatch().getAwayTeam().getTeamName())) {
+                                teamCopy.get(p).setScheduleWeight(returnSchedule.get(k).get(i).getWeight());
                             }
-                        }
-                    }
-            
-                    // Check if the schedule is balanced
-                    ArrayList<Double> weights = new ArrayList<>();
-                    for (int r = 0; r < teamCopy.size(); r++) {
-                        weights.add(((double) teamCopy.get(r).getScheduleWeight()) / returnSchedule.size());
-                       // System.out.println("Double: "+teamCopy.get(r).getScheduleWeight());
-                        //System.out.println("Size: "+returnSchedule.size());
-                       // System.out.println(((double) teamCopy.get(r).getScheduleWeight()) / returnSchedule.size());
-                        num += 1;
-                    }
-                    double minWeight = weights.get(0);
-                    double maxWeight = weights.get(0);
-                    for (int l = 1; l < weights.size(); l++) {
-                        if (weights.get(l) < minWeight) {
-                            minWeight = weights.get(l);
-                        }
-                        if (weights.get(l) > maxWeight) {
-                            maxWeight = weights.get(l);
-                        }
-                    }
-            
-                    if (maxWeight - minWeight > 0.15) {
-                        for (int a = 0; a < teamCopy.size(); a++) {
-                            teamCopy.get(a).resetScheduleWeight();
-                        }
-                        returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
-                    } else {
-                        balancedSchedule = true;
-                        weightsCopy = weights;
-                        for(int i = 0; i < weights.size(); i++)
-                        {
-                           // System.out.println(weights.get(i));
                         }
                     }
                 }
-            
-                if (goodSchedule && balancedSchedule) {
 
-                    // Check for duplicate teams
-                    for (int k = 0; k < returnSchedule.size(); k++) {
-                        ArrayList<String> teamsCopy = new ArrayList<>();
-                        for (int i = 0; i < returnSchedule.get(k).size(); i++) {
-                            teamsCopy.add(returnSchedule.get(k).get(i).getMatch().getAwayTeam().getTeamName());
-                            teamsCopy.add(returnSchedule.get(k).get(i).getMatch().getHomeTeam().getTeamName());
-                        }
-                        Set<String> s = new HashSet<>();
-                        for (String teamName : teamsCopy) {
-                            if (!s.add(teamName)) {
-                                dupeTeam = true;
-                                break;
-                            }
-                        }
-                        if (dupeTeam) {
-                            returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
-                            goodSchedule = false;
-                            balancedSchedule = false;
+                // Check if the schedule is balanced
+                ArrayList<Double> weights = new ArrayList<>();
+                for (int r = 0; r < teamCopy.size(); r++) {
+                    weights.add(((double) teamCopy.get(r).getScheduleWeight()) / returnSchedule.size());
+                    // System.out.println("Double: "+teamCopy.get(r).getScheduleWeight());
+                    // System.out.println("Size: "+returnSchedule.size());
+                    // System.out.println(((double) teamCopy.get(r).getScheduleWeight()) /
+                    // returnSchedule.size());
+                    num += 1;
+                }
+                double minWeight = weights.get(0);
+                double maxWeight = weights.get(0);
+                for (int l = 1; l < weights.size(); l++) {
+                    if (weights.get(l) < minWeight) {
+                        minWeight = weights.get(l);
+                    }
+                    if (weights.get(l) > maxWeight) {
+                        maxWeight = weights.get(l);
+                    }
+                }
+
+                System.out.println(maxWeight - minWeight);
+
+                if (maxWeight - minWeight > 0.25*returnSchedule.get(1).size()-0.75) {
+                    for (int a = 0; a < teamCopy.size(); a++) {
+                        teamCopy.get(a).resetScheduleWeight();
+                    }
+                    returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
+                } else {
+                    balancedSchedule = true;
+                    weightsCopy = weights;
+                    for (int i = 0; i < weights.size(); i++) {
+                        // System.out.println(weights.get(i));
+                    }
+                }
+            }
+
+            if (goodSchedule && balancedSchedule) {
+
+                // Check for duplicate teams
+                for (int k = 0; k < returnSchedule.size(); k++) {
+                    ArrayList<String> teamsCopy = new ArrayList<>();
+                    for (int i = 0; i < returnSchedule.get(k).size(); i++) {
+                        teamsCopy.add(returnSchedule.get(k).get(i).getMatch().getAwayTeam().getTeamName());
+                        teamsCopy.add(returnSchedule.get(k).get(i).getMatch().getHomeTeam().getTeamName());
+                    }
+                    Set<String> s = new HashSet<>();
+                    for (String teamName : teamsCopy) {
+                        if (!s.add(teamName)) {
+                            dupeTeam = true;
                             break;
                         }
                     }
+                    if (dupeTeam) {
+                        returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
+                        goodSchedule = false;
+                        balancedSchedule = false;
+                        break;
+                    }
                 }
-            }        
+            }
+        }
 
-           for (int k = 0; k < returnSchedule.size(); k++) {
+        for (int k = 0; k < returnSchedule.size(); k++) {
             for (int i = 0; i < returnSchedule.get(k).size(); i++) {
                 System.out.println(scheduleByWeeks.get(k).get(i).toString());
             }
@@ -316,13 +317,11 @@ public class SchedulingDriver {
             System.out.println();
 
         }
-        //System.out.println(num);
+        // System.out.println(num);
 
-        for(int i = 0; i < weightsCopy.size(); i++)
-        {
-            //System.out.println("Copy: "+weightsCopy.get(i));
+        for (int i = 0; i < weightsCopy.size(); i++) {
+            // System.out.println("Copy: "+weightsCopy.get(i));
         }
-
     }
 
 }
