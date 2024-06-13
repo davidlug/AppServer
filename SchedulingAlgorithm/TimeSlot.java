@@ -81,6 +81,15 @@ public class TimeSlot
     {
         return this.match;
     }
+
+    public int getStartTime()
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(this.getDate());
+        return cal.get(Calendar.HOUR_OF_DAY);
+    }
+
+
     @Override
     public String toString()
     {
