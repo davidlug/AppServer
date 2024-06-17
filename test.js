@@ -36,14 +36,14 @@ class Match {
         return `${this.homeTeam.getTeamName()} vs ${this.awayTeam.getTeamName()}`;
     }
 }
-
 class TimeSlot {
-    constructor(date, week, playingLocation) {
+    constructor(date, week, playingLocation, lateGame = false) {
         this.date = new Date(date);
         this.week = week;
         this.playingLocation = playingLocation;
-        this.weight = 0;
+        this.weight = lateGame ? 1 : 0;
         this.match = null;
+        this.lateGame = lateGame;
     }
 
     getDate() {
@@ -70,6 +70,7 @@ class TimeSlot {
         return `${this.date} - ${this.match}`;
     }
 }
+
 
 class PlayingLocation {
     constructor(name, rink, isOutdoor) {
@@ -121,16 +122,13 @@ function generateSchedule(matchups, scheduleByWeeks, teams) {
     return scheduleByWeeks;
 }
 
-function main(teams, timeSlots) {
+function main(teams, timeSlots, balanceValue) {
     var teamCopy = teams.map(team => ({ ...team, weight: 0 }));
 
     const matchups = matchupGenerator(teams);
 
-    console.log(timeSlots);
-
     const scheduleByWeeks = [];
     for (let i = 0; i < timeSlots[timeSlots.length - 1].week; i++) {
-        console.log(timeSlots[timeSlots.length-1].week);
         scheduleByWeeks.push([]);
     }
     for (let ts of timeSlots) {
@@ -139,9 +137,6 @@ function main(teams, timeSlots) {
 
     for (let week of scheduleByWeeks) {
         week.sort((t1, t2) => t1.date - t2.date);
-        for (let i = 0; i < week.length; i++) {
-            week[i].weight = i;
-        }
     }
 
     let returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
@@ -151,10 +146,8 @@ function main(teams, timeSlots) {
     let dupeTeam = true;
 
     while (!goodSchedule || !balancedSchedule || dupeTeam) {
-        // Generate a new schedule
         returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
         
-        // Check if the schedule is good
         goodSchedule = true;
         for (let k = 0; k < returnSchedule.length; k++) {
             for (let i = 0; i < returnSchedule[k].length; i++) {
@@ -169,7 +162,6 @@ function main(teams, timeSlots) {
         }
 
         if (goodSchedule) {
-            // Check if the schedule is balanced
             balancedSchedule = true;  // Start with an assumption that the schedule is balanced
             for (let p = 0; p < teamCopy.length; p++) {
                 teamCopy[p].weight = 0; // Reset team weights
@@ -193,12 +185,11 @@ function main(teams, timeSlots) {
             
             let minWeight = Math.min(...weights);
             let maxWeight = Math.max(...weights);
-            if (maxWeight - minWeight > 0.15) {
+            if (maxWeight - minWeight > 0.5) {
                 balancedSchedule = false;
             }
 
             if (balancedSchedule) {
-                // Check for duplicate teams
                 dupeTeam = false;
                 for (let k = 0; k < returnSchedule.length; k++) {
                     let teamsCopy = [];
@@ -225,5 +216,7 @@ function main(teams, timeSlots) {
 
     return returnSchedule;
 }
+
+
 
 module.exports = { Team, TimeSlot, PlayingLocation, main };
