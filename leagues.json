@@ -72,16 +72,16 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "teamName": "No Regretzsky's",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 5
-                },
-                "awayTeam": {
-                  "teamName": "Hawkstone Hellraisers",
+                  "teamName": "Pucks Zyn Deep",
                   "Players": "16",
                   "Division": "B",
-                  "id": 4
+                  "id": 7
+                },
+                "awayTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
                 }
               }
             },
@@ -98,16 +98,16 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamName": "Don Cherry Poppers",
-                  "Players": "19",
-                  "Division": "A",
-                  "id": 3
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
                 },
                 "awayTeam": {
-                  "teamName": "Pucks Zyn Deep",
+                  "teamName": "Hawkstone Hellraisers",
                   "Players": "16",
                   "Division": "B",
-                  "id": 7
+                  "id": 4
                 }
               }
             },
@@ -123,10 +123,10 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamName": "Kuznetsov's Ski School",
+                  "teamName": "No Regretzsky's",
                   "Players": "15",
                   "Division": "C",
-                  "id": 6
+                  "id": 5
                 },
                 "awayTeam": {
                   "teamName": "Upper Decky Cheddies",
@@ -149,17 +149,17 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "19",
+                  "Division": "A",
+                  "id": 3
+                },
+                "awayTeam": {
                   "teamID": "2",
                   "teamName": "Brew Crew",
                   "Players": "20",
                   "Division": "B",
                   "id": 2
-                },
-                "awayTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
                 }
               }
             },
@@ -175,17 +175,17 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
+                },
+                "awayTeam": {
                   "teamID": "2",
                   "teamName": "Brew Crew",
                   "Players": "20",
                   "Division": "B",
                   "id": 2
-                },
-                "awayTeam": {
-                  "teamName": "Pucks Zyn Deep",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 7
                 }
               }
             },
@@ -201,16 +201,16 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 4
+                },
+                "awayTeam": {
                   "teamName": "Don Cherry Poppers",
                   "Players": "19",
                   "Division": "A",
                   "id": 3
-                },
-                "awayTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
                 }
               }
             },
@@ -226,16 +226,16 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamName": "No Regretzsky's",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 5
-                },
-                "awayTeam": {
                   "teamName": "Upper Decky Cheddies",
                   "Players": "15",
                   "Division": "Elite",
                   "id": 8
+                },
+                "awayTeam": {
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
                 }
               }
             },
@@ -251,16 +251,16 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
-                  "teamName": "Kuznetsov's Ski School",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 6
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
                 },
                 "awayTeam": {
-                  "teamName": "Hawkstone Hellraisers",
+                  "teamName": "Pucks Zyn Deep",
                   "Players": "16",
                   "Division": "B",
-                  "id": 4
+                  "id": 7
                 }
               }
             },
@@ -276,16 +276,17 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "teamName": "Kuznetsov's Ski School",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 6
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "19",
+                  "Division": "A",
+                  "id": 3
                 },
                 "awayTeam": {
-                  "teamName": "No Regretzsky's",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 5
+                  "teamID": "2",
+                  "teamName": "Brew Crew",
+                  "Players": "20",
+                  "Division": "B",
+                  "id": 2
                 }
               }
             },
@@ -301,16 +302,16 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamName": "Upper Decky Cheddies",
+                  "teamName": "No Regretzsky's",
                   "Players": "15",
-                  "Division": "Elite",
-                  "id": 8
+                  "Division": "C",
+                  "id": 5
                 },
                 "awayTeam": {
-                  "teamName": "Hawkstone Hellraisers",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 4
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
                 }
               }
             },
@@ -326,17 +327,16 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamID": "2",
-                  "teamName": "Brew Crew",
-                  "Players": "20",
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
                   "Division": "B",
-                  "id": 2
+                  "id": 7
                 },
                 "awayTeam": {
-                  "teamName": "Don Cherry Poppers",
-                  "Players": "19",
-                  "Division": "A",
-                  "id": 3
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
                 }
               }
             },
@@ -352,16 +352,16 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
-                  "teamName": "Pucks Zyn Deep",
+                  "teamName": "Hawkstone Hellraisers",
                   "Players": "16",
                   "Division": "B",
-                  "id": 7
+                  "id": 4
                 },
                 "awayTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
                 }
               }
             },
@@ -377,17 +377,16 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "teamName": "Kuznetsov's Ski School",
+                  "teamName": "Upper Decky Cheddies",
                   "Players": "15",
-                  "Division": "C",
-                  "id": 6
+                  "Division": "Elite",
+                  "id": 8
                 },
                 "awayTeam": {
-                  "teamID": "2",
-                  "teamName": "Brew Crew",
-                  "Players": "20",
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
                   "Division": "B",
-                  "id": 2
+                  "id": 7
                 }
               }
             },
@@ -403,16 +402,17 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamName": "Don Cherry Poppers",
-                  "Players": "19",
-                  "Division": "A",
-                  "id": 3
+                  "teamName": "Kuznetsov's Ski School",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 6
                 },
                 "awayTeam": {
-                  "teamName": "Upper Decky Cheddies",
-                  "Players": "15",
-                  "Division": "Elite",
-                  "id": 8
+                  "teamID": "2",
+                  "teamName": "Brew Crew",
+                  "Players": "20",
+                  "Division": "B",
+                  "id": 2
                 }
               }
             },
@@ -428,16 +428,16 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamName": "No Regretzsky's",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 5
-                },
-                "awayTeam": {
-                  "teamName": "Pucks Zyn Deep",
+                  "teamName": "Hawkstone Hellraisers",
                   "Players": "16",
                   "Division": "B",
-                  "id": 7
+                  "id": 4
+                },
+                "awayTeam": {
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
                 }
               }
             },
@@ -453,16 +453,16 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
-                  "teamName": "Hawkstone Hellraisers",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 4
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "19",
+                  "Division": "A",
+                  "id": 3
                 },
                 "awayTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
                 }
               }
             },
@@ -478,16 +478,16 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "teamName": "Pucks Zyn Deep",
+                  "teamName": "Hawkstone Hellraisers",
                   "Players": "16",
                   "Division": "B",
-                  "id": 7
+                  "id": 4
                 },
                 "awayTeam": {
-                  "teamName": "Upper Decky Cheddies",
+                  "teamName": "Kuznetsov's Ski School",
                   "Players": "15",
-                  "Division": "Elite",
-                  "id": 8
+                  "Division": "C",
+                  "id": 6
                 }
               }
             },
@@ -503,16 +503,16 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamName": "Hawkstone Hellraisers",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 4
-                },
-                "awayTeam": {
                   "teamName": "Don Cherry Poppers",
                   "Players": "19",
                   "Division": "A",
                   "id": 3
+                },
+                "awayTeam": {
+                  "teamName": "Pucks Zyn Deep",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 7
                 }
               }
             },
@@ -528,16 +528,16 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
                 },
                 "awayTeam": {
-                  "teamName": "Kuznetsov's Ski School",
+                  "teamName": "No Regretzsky's",
                   "Players": "15",
                   "Division": "C",
-                  "id": 6
+                  "id": 5
                 }
               }
             },
@@ -553,17 +553,17 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
+                },
+                "awayTeam": {
                   "teamID": "2",
                   "teamName": "Brew Crew",
                   "Players": "20",
                   "Division": "B",
                   "id": 2
-                },
-                "awayTeam": {
-                  "teamName": "No Regretzsky's",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 5
                 }
               }
             },
@@ -579,10 +579,10 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "teamName": "No Regretzsky's",
+                  "teamName": "Upper Decky Cheddies",
                   "Players": "15",
-                  "Division": "C",
-                  "id": 5
+                  "Division": "Elite",
+                  "id": 8
                 },
                 "awayTeam": {
                   "id": 1,
@@ -604,10 +604,10 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamName": "Hawkstone Hellraisers",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 4
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
                 },
                 "awayTeam": {
                   "teamName": "Pucks Zyn Deep",
@@ -629,16 +629,17 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamName": "Don Cherry Poppers",
-                  "Players": "19",
-                  "Division": "A",
-                  "id": 3
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 4
                 },
                 "awayTeam": {
-                  "teamName": "Kuznetsov's Ski School",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 6
+                  "teamID": "2",
+                  "teamName": "Brew Crew",
+                  "Players": "20",
+                  "Division": "B",
+                  "id": 2
                 }
               }
             },
@@ -654,17 +655,16 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
-                  "teamID": "2",
-                  "teamName": "Brew Crew",
-                  "Players": "20",
-                  "Division": "B",
-                  "id": 2
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "19",
+                  "Division": "A",
+                  "id": 3
                 },
                 "awayTeam": {
-                  "teamName": "Upper Decky Cheddies",
+                  "teamName": "Kuznetsov's Ski School",
                   "Players": "15",
-                  "Division": "Elite",
-                  "id": 8
+                  "Division": "C",
+                  "id": 6
                 }
               }
             },
@@ -680,16 +680,16 @@
               "weight": 0,
               "match": {
                 "homeTeam": {
-                  "id": 1,
-                  "teamName": "Box Munchers",
-                  "Players": "18",
-                  "Division": "A"
+                  "teamName": "No Regretzsky's",
+                  "Players": "15",
+                  "Division": "C",
+                  "id": 5
                 },
                 "awayTeam": {
-                  "teamName": "Upper Decky Cheddies",
-                  "Players": "15",
-                  "Division": "Elite",
-                  "id": 8
+                  "teamName": "Hawkstone Hellraisers",
+                  "Players": "16",
+                  "Division": "B",
+                  "id": 4
                 }
               }
             },
@@ -705,17 +705,16 @@
               "weight": 1,
               "match": {
                 "homeTeam": {
-                  "teamID": "2",
-                  "teamName": "Brew Crew",
-                  "Players": "20",
-                  "Division": "B",
-                  "id": 2
+                  "teamName": "Don Cherry Poppers",
+                  "Players": "19",
+                  "Division": "A",
+                  "id": 3
                 },
                 "awayTeam": {
-                  "teamName": "Hawkstone Hellraisers",
-                  "Players": "16",
-                  "Division": "B",
-                  "id": 4
+                  "id": 1,
+                  "teamName": "Box Munchers",
+                  "Players": "18",
+                  "Division": "A"
                 }
               }
             },
@@ -731,16 +730,16 @@
               "weight": 2,
               "match": {
                 "homeTeam": {
-                  "teamName": "Don Cherry Poppers",
-                  "Players": "19",
-                  "Division": "A",
-                  "id": 3
-                },
-                "awayTeam": {
-                  "teamName": "No Regretzsky's",
+                  "teamName": "Kuznetsov's Ski School",
                   "Players": "15",
                   "Division": "C",
-                  "id": 5
+                  "id": 6
+                },
+                "awayTeam": {
+                  "teamName": "Upper Decky Cheddies",
+                  "Players": "15",
+                  "Division": "Elite",
+                  "id": 8
                 }
               }
             },
@@ -756,16 +755,17 @@
               "weight": 3,
               "match": {
                 "homeTeam": {
-                  "teamName": "Kuznetsov's Ski School",
-                  "Players": "15",
-                  "Division": "C",
-                  "id": 6
-                },
-                "awayTeam": {
                   "teamName": "Pucks Zyn Deep",
                   "Players": "16",
                   "Division": "B",
                   "id": 7
+                },
+                "awayTeam": {
+                  "teamID": "2",
+                  "teamName": "Brew Crew",
+                  "Players": "20",
+                  "Division": "B",
+                  "id": 2
                 }
               }
             }
@@ -785,16 +785,16 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
-                    "teamName": "No Regretzsky's",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 5
-                  },
-                  "awayTeam": {
-                    "teamName": "Hawkstone Hellraisers",
+                    "teamName": "Pucks Zyn Deep",
                     "Players": "16",
                     "Division": "B",
-                    "id": 4
+                    "id": 7
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
                   }
                 }
               },
@@ -811,16 +811,16 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Don Cherry Poppers",
-                    "Players": "19",
-                    "Division": "A",
-                    "id": 3
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
                   },
                   "awayTeam": {
-                    "teamName": "Pucks Zyn Deep",
+                    "teamName": "Hawkstone Hellraisers",
                     "Players": "16",
                     "Division": "B",
-                    "id": 7
+                    "id": 4
                   }
                 }
               },
@@ -836,10 +836,10 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Kuznetsov's Ski School",
+                    "teamName": "No Regretzsky's",
                     "Players": "15",
                     "Division": "C",
-                    "id": 6
+                    "id": 5
                   },
                   "awayTeam": {
                     "teamName": "Upper Decky Cheddies",
@@ -862,17 +862,17 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
+                  },
+                  "awayTeam": {
                     "teamID": "2",
                     "teamName": "Brew Crew",
                     "Players": "20",
                     "Division": "B",
                     "id": 2
-                  },
-                  "awayTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
                   }
                 }
               }
@@ -890,17 +890,17 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  },
+                  "awayTeam": {
                     "teamID": "2",
                     "teamName": "Brew Crew",
                     "Players": "20",
                     "Division": "B",
                     "id": 2
-                  },
-                  "awayTeam": {
-                    "teamName": "Pucks Zyn Deep",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 7
                   }
                 }
               },
@@ -916,16 +916,16 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 4
+                  },
+                  "awayTeam": {
                     "teamName": "Don Cherry Poppers",
                     "Players": "19",
                     "Division": "A",
                     "id": 3
-                  },
-                  "awayTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
                   }
                 }
               },
@@ -938,6 +938,110 @@
                 "rink": "Rink 1",
                 "premium": false,
                 "id": 7,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 8,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "18:30",
+                "endTime": "19:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "lateGame": true,
+                "id": 1,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "lateGame": false,
+                "id": 2,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
+                  },
+                  "awayTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 4
+                  }
+                }
+              },
+              {
+                "week": 1,
+                "date": "2024-05-12",
+                "startTime": "20:00",
+                "endTime": "21:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "id": 3,
                 "weight": 2,
                 "match": {
                   "homeTeam": {
@@ -955,6 +1059,111 @@
                 }
               },
               {
+                "week": 1,
+                "date": "2024-05-22",
+                "startTime": "21:00",
+                "endTime": "22:00",
+                "facility": "Allandale Recreation Centre",
+                "rink": "Red Rink",
+                "premium": false,
+                "lateGame": false,
+                "id": 4,
+                "weight": 3,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
+                  },
+                  "awayTeam": {
+                    "teamID": "2",
+                    "teamName": "Brew Crew",
+                    "Players": "20",
+                    "Division": "B",
+                    "id": 2
+                  }
+                }
+              }
+            ],
+            [
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "17:00",
+                "endTime": "18:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 5,
+                "weight": 0,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
+                  },
+                  "awayTeam": {
+                    "teamID": "2",
+                    "teamName": "Brew Crew",
+                    "Players": "20",
+                    "Division": "B",
+                    "id": 2
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 6,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 4
+                  },
+                  "awayTeam": {
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
+                  }
+                }
+              },
+              {
+                "week": 2,
+                "date": "2024-05-26",
+                "startTime": "19:00",
+                "endTime": "20:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 7,
+                "weight": 2,
+                "match": {
+                  "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
+                  }
+                }
+              },
+              {
                 "week": 2,
                 "date": "2024-05-26",
                 "startTime": "20:00",
@@ -966,16 +1175,16 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Kuznetsov's Ski School",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 6
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
                   },
                   "awayTeam": {
-                    "teamName": "Hawkstone Hellraisers",
+                    "teamName": "Pucks Zyn Deep",
                     "Players": "16",
                     "Division": "B",
-                    "id": 4
+                    "id": 7
                   }
                 }
               }
@@ -993,16 +1202,17 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Kuznetsov's Ski School",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 6
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
                   },
                   "awayTeam": {
-                    "teamName": "No Regretzsky's",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 5
+                    "teamID": "2",
+                    "teamName": "Brew Crew",
+                    "Players": "20",
+                    "Division": "B",
+                    "id": 2
                   }
                 }
               },
@@ -1018,16 +1228,16 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Upper Decky Cheddies",
+                    "teamName": "No Regretzsky's",
                     "Players": "15",
-                    "Division": "Elite",
-                    "id": 8
+                    "Division": "C",
+                    "id": 5
                   },
                   "awayTeam": {
-                    "teamName": "Hawkstone Hellraisers",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 4
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
                   }
                 }
               },
@@ -1043,17 +1253,16 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "teamID": "2",
-                    "teamName": "Brew Crew",
-                    "Players": "20",
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
                     "Division": "B",
-                    "id": 2
+                    "id": 7
                   },
                   "awayTeam": {
-                    "teamName": "Don Cherry Poppers",
-                    "Players": "19",
-                    "Division": "A",
-                    "id": 3
+                    "teamName": "Kuznetsov's Ski School",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 6
                   }
                 }
               },
@@ -1069,16 +1278,16 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Pucks Zyn Deep",
+                    "teamName": "Hawkstone Hellraisers",
                     "Players": "16",
                     "Division": "B",
-                    "id": 7
+                    "id": 4
                   },
                   "awayTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
                   }
                 }
               }
@@ -1096,6 +1305,31 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
+                  }
+                }
+              },
+              {
+                "week": 4,
+                "date": "2024-06-09",
+                "startTime": "18:00",
+                "endTime": "19:00",
+                "facility": "Centre Ice Sportsplex",
+                "rink": "Rink 1",
+                "premium": false,
+                "id": 14,
+                "weight": 1,
+                "match": {
+                  "homeTeam": {
                     "teamName": "Kuznetsov's Ski School",
                     "Players": "15",
                     "Division": "C",
@@ -1113,31 +1347,6 @@
               {
                 "week": 4,
                 "date": "2024-06-09",
-                "startTime": "18:00",
-                "endTime": "19:00",
-                "facility": "Centre Ice Sportsplex",
-                "rink": "Rink 1",
-                "premium": false,
-                "id": 14,
-                "weight": 1,
-                "match": {
-                  "homeTeam": {
-                    "teamName": "Don Cherry Poppers",
-                    "Players": "19",
-                    "Division": "A",
-                    "id": 3
-                  },
-                  "awayTeam": {
-                    "teamName": "Upper Decky Cheddies",
-                    "Players": "15",
-                    "Division": "Elite",
-                    "id": 8
-                  }
-                }
-              },
-              {
-                "week": 4,
-                "date": "2024-06-09",
                 "startTime": "19:00",
                 "endTime": "20:00",
                 "facility": "Centre Ice Sportsplex",
@@ -1147,16 +1356,16 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "teamName": "No Regretzsky's",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 5
-                  },
-                  "awayTeam": {
-                    "teamName": "Pucks Zyn Deep",
+                    "teamName": "Hawkstone Hellraisers",
                     "Players": "16",
                     "Division": "B",
-                    "id": 7
+                    "id": 4
+                  },
+                  "awayTeam": {
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
                   }
                 }
               },
@@ -1172,16 +1381,16 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Hawkstone Hellraisers",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 4
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
                   },
                   "awayTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
                   }
                 }
               }
@@ -1199,16 +1408,16 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Pucks Zyn Deep",
+                    "teamName": "Hawkstone Hellraisers",
                     "Players": "16",
                     "Division": "B",
-                    "id": 7
+                    "id": 4
                   },
                   "awayTeam": {
-                    "teamName": "Upper Decky Cheddies",
+                    "teamName": "Kuznetsov's Ski School",
                     "Players": "15",
-                    "Division": "Elite",
-                    "id": 8
+                    "Division": "C",
+                    "id": 6
                   }
                 }
               },
@@ -1224,16 +1433,16 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Hawkstone Hellraisers",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 4
-                  },
-                  "awayTeam": {
                     "teamName": "Don Cherry Poppers",
                     "Players": "19",
                     "Division": "A",
                     "id": 3
+                  },
+                  "awayTeam": {
+                    "teamName": "Pucks Zyn Deep",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 7
                   }
                 }
               },
@@ -1249,16 +1458,16 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
                   },
                   "awayTeam": {
-                    "teamName": "Kuznetsov's Ski School",
+                    "teamName": "No Regretzsky's",
                     "Players": "15",
                     "Division": "C",
-                    "id": 6
+                    "id": 5
                   }
                 }
               },
@@ -1274,17 +1483,17 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
+                  },
+                  "awayTeam": {
                     "teamID": "2",
                     "teamName": "Brew Crew",
                     "Players": "20",
                     "Division": "B",
                     "id": 2
-                  },
-                  "awayTeam": {
-                    "teamName": "No Regretzsky's",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 5
                   }
                 }
               }
@@ -1302,10 +1511,10 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
-                    "teamName": "No Regretzsky's",
+                    "teamName": "Upper Decky Cheddies",
                     "Players": "15",
-                    "Division": "C",
-                    "id": 5
+                    "Division": "Elite",
+                    "id": 8
                   },
                   "awayTeam": {
                     "id": 1,
@@ -1327,10 +1536,10 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Hawkstone Hellraisers",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 4
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
                   },
                   "awayTeam": {
                     "teamName": "Pucks Zyn Deep",
@@ -1352,16 +1561,17 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Don Cherry Poppers",
-                    "Players": "19",
-                    "Division": "A",
-                    "id": 3
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 4
                   },
                   "awayTeam": {
-                    "teamName": "Kuznetsov's Ski School",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 6
+                    "teamID": "2",
+                    "teamName": "Brew Crew",
+                    "Players": "20",
+                    "Division": "B",
+                    "id": 2
                   }
                 }
               },
@@ -1377,17 +1587,16 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
-                    "teamID": "2",
-                    "teamName": "Brew Crew",
-                    "Players": "20",
-                    "Division": "B",
-                    "id": 2
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
                   },
                   "awayTeam": {
-                    "teamName": "Upper Decky Cheddies",
+                    "teamName": "Kuznetsov's Ski School",
                     "Players": "15",
-                    "Division": "Elite",
-                    "id": 8
+                    "Division": "C",
+                    "id": 6
                   }
                 }
               }
@@ -1405,16 +1614,16 @@
                 "weight": 0,
                 "match": {
                   "homeTeam": {
-                    "id": 1,
-                    "teamName": "Box Munchers",
-                    "Players": "18",
-                    "Division": "A"
+                    "teamName": "No Regretzsky's",
+                    "Players": "15",
+                    "Division": "C",
+                    "id": 5
                   },
                   "awayTeam": {
-                    "teamName": "Upper Decky Cheddies",
-                    "Players": "15",
-                    "Division": "Elite",
-                    "id": 8
+                    "teamName": "Hawkstone Hellraisers",
+                    "Players": "16",
+                    "Division": "B",
+                    "id": 4
                   }
                 }
               },
@@ -1430,17 +1639,16 @@
                 "weight": 1,
                 "match": {
                   "homeTeam": {
-                    "teamID": "2",
-                    "teamName": "Brew Crew",
-                    "Players": "20",
-                    "Division": "B",
-                    "id": 2
+                    "teamName": "Don Cherry Poppers",
+                    "Players": "19",
+                    "Division": "A",
+                    "id": 3
                   },
                   "awayTeam": {
-                    "teamName": "Hawkstone Hellraisers",
-                    "Players": "16",
-                    "Division": "B",
-                    "id": 4
+                    "id": 1,
+                    "teamName": "Box Munchers",
+                    "Players": "18",
+                    "Division": "A"
                   }
                 }
               },
@@ -1456,16 +1664,16 @@
                 "weight": 2,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Don Cherry Poppers",
-                    "Players": "19",
-                    "Division": "A",
-                    "id": 3
-                  },
-                  "awayTeam": {
-                    "teamName": "No Regretzsky's",
+                    "teamName": "Kuznetsov's Ski School",
                     "Players": "15",
                     "Division": "C",
-                    "id": 5
+                    "id": 6
+                  },
+                  "awayTeam": {
+                    "teamName": "Upper Decky Cheddies",
+                    "Players": "15",
+                    "Division": "Elite",
+                    "id": 8
                   }
                 }
               },
@@ -1481,16 +1689,17 @@
                 "weight": 3,
                 "match": {
                   "homeTeam": {
-                    "teamName": "Kuznetsov's Ski School",
-                    "Players": "15",
-                    "Division": "C",
-                    "id": 6
-                  },
-                  "awayTeam": {
                     "teamName": "Pucks Zyn Deep",
                     "Players": "16",
                     "Division": "B",
                     "id": 7
+                  },
+                  "awayTeam": {
+                    "teamID": "2",
+                    "teamName": "Brew Crew",
+                    "Players": "20",
+                    "Division": "B",
+                    "id": 2
                   }
                 }
               }

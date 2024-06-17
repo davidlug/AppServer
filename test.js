@@ -122,7 +122,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams) {
     return scheduleByWeeks;
 }
 
-function main(teams, timeSlots, balanceValue) {
+function main(teams, timeSlots, balanceValue, lastWeek) {
     var teamCopy = teams.map(team => ({ ...team, weight: 0 }));
 
     const matchups = matchupGenerator(teams);
@@ -139,14 +139,18 @@ function main(teams, timeSlots, balanceValue) {
         week.sort((t1, t2) => t1.date - t2.date);
     }
 
-    let returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
+    let freezeWeeks = lastWeek || 0;
+    let frozenSchedule = scheduleByWeeks.slice(0, freezeWeeks);
+    let scheduleToGenerate = scheduleByWeeks.slice(freezeWeeks);
+
+    let returnSchedule = generateSchedule(matchups, scheduleToGenerate, teams);
 
     let goodSchedule = false;
     let balancedSchedule = false;
     let dupeTeam = true;
 
     while (!goodSchedule || !balancedSchedule || dupeTeam) {
-        returnSchedule = generateSchedule(matchups, scheduleByWeeks, teams);
+        returnSchedule = generateSchedule(matchups, scheduleToGenerate, teams);
         
         goodSchedule = true;
         for (let k = 0; k < returnSchedule.length; k++) {
@@ -185,7 +189,7 @@ function main(teams, timeSlots, balanceValue) {
             
             let minWeight = Math.min(...weights);
             let maxWeight = Math.max(...weights);
-            if (maxWeight - minWeight > 0.5) {
+            if (maxWeight - minWeight > balanceValue) {
                 balancedSchedule = false;
             }
 
@@ -214,8 +218,9 @@ function main(teams, timeSlots, balanceValue) {
         }
     }
 
-    return returnSchedule;
+    return frozenSchedule.concat(returnSchedule);
 }
+
 
 
 

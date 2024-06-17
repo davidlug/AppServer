@@ -5,6 +5,7 @@ const { Team, TimeSlot, PlayingLocation, main } = require('./test.js'); // impor
 var app = express();
 var fs = require('fs');
 const path = require('path');
+const { scheduler } = require('timers/promises');
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -491,11 +492,12 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
 
         const leagueID = parseInt(req.params.leagueID, 10);
         const divisionID = parseInt(req.params.divisionID, 10);
-        const balanceValue = parseFloat(req.query.value);
-        console.log("Balance "+balanceValue);
+        const freezeWeeks = req.query.freezeWeeks.split(",");
+        const lastWeek = freezeWeeks.length ? parseInt(freezeWeeks[freezeWeeks.length - 1], 10) : 0;
+
+        console.log("Freeze Weeks: " + lastWeek);
 
         const league = parseData.leagues.find(league => league.id === leagueID);
-        console.log(league);
         if (!league) {
             res.status(404).json({ error: "League not found" });
             return;
@@ -510,10 +512,12 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
         console.log(division.teams);
 
         console.log("Old Schedule");
-        console.log(division.schedule[1][1]);
+        console.log(division.schedule);
 
-        const newSchedule = main(division.teams, division.timeslots, balanceValue);
-        division.schedule = newSchedule;
+        const freezeSchedule = (division.schedule).slice(0, lastWeek);
+
+        const newSchedule = main(division.teams, division.timeslots, 0.5, lastWeek);
+        division.schedule = freezeSchedule.concat(newSchedule);
 
         fs.writeFile(__dirname + "/leagues.json", JSON.stringify(parseData, null, 2), 'utf8', (writeErr) => {
             if (writeErr) {
@@ -525,13 +529,6 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             console.log('New Schedule written to file successfully');
             res.status(200).json({ message: 'Schedule generated and saved successfully', schedule: newSchedule });
         });
-
-        console.log("New Schedule: "+newSchedule);
-        // if (!division.schedule) {
-        //     res.status(404).json({ error: "Schedule not found" });
-        //     return;
-        // }
-
     });
 });
 
