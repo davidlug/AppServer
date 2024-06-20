@@ -471,6 +471,45 @@ app.post('/league/:leagueID/division/:divisionID/timeslot', function (req, res) 
     });
 });
 
+app.get('/league/:leagueID/division/:divisionID/schedules', function(req, res) {
+    fs.readFile(__dirname + "/leagues.json", 'utf8', function (err, data) {
+        if (err) {
+            console.error('Error reading file:', err);
+            res.status(500).json({ error: "Failed to read data file" });
+            return;
+        }
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (parseErr) {
+            console.error('Error parsing JSON:', parseErr);
+            res.status(500).json({ error: "Failed to parse data file" });
+            return;
+        }
+
+        const leagueID = parseInt(req.params.leagueID, 10);
+        const divisionID = parseInt(req.params.divisionID, 10);
+
+        console.log("Freeze Weeks: " + lastWeek);
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        res.header("Content-Type", "application/json");
+        res.send(JSON.stringify({ schedule: division.schedule }));
+    });
+})
+
 app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
     console.log("Request Received");
 
