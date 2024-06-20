@@ -19,13 +19,14 @@ public class TimeSlot
 
     private Match match;
 
-    public TimeSlot(Date date, Calendar calendar, int week, PlayingLocation playingLocation)
+    public TimeSlot(Date date, Calendar calendar, int week, PlayingLocation playingLocation, int weight)
     {
         this.calendar = calendar;
         this.date = date;
         calendar.setTime(date);
         this.week = week;
         this.playingLocation = playingLocation;
+        this.weight = weight;
     }
 
     public void setDate(Date date)

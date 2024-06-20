@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 const { Team, TimeSlot, PlayingLocation, main } = require('./test.js'); // import from test.js
 var app = express();
 var fs = require('fs');
+const path = require('path');
+const { scheduler } = require('timers/promises');
 
 app.use(cors())
 app.use(bodyParser.json());
@@ -121,7 +123,7 @@ app.get('/leagues/:leagueID/divisions/:divisionID/teams', (req, res) => {
 
 // Get timeslots for a specific league and division
 app.get('/leagues/:leagueID/divisions/:divisionID/timeslots', (req, res) => {
-    console.log("Time Slots");
+    //console.log("Time Slots");
     const leagueID = parseInt(req.params.leagueID);
     const divisionID = parseInt(req.params.divisionID);
 
@@ -142,7 +144,7 @@ app.get('/leagues/:leagueID/divisions/:divisionID/timeslots', (req, res) => {
             res.status(404).json({ error: "Division not found" });
             return;
         }
-        console.log(division.timeslots);
+        //console.log(division.timeslots);
 
         res.json({ timeslots: division.timeslots || [] });
     });
@@ -469,6 +471,45 @@ app.post('/league/:leagueID/division/:divisionID/timeslot', function (req, res) 
     });
 });
 
+app.get('/league/:leagueID/division/:divisionID/schedules', function(req, res) {
+    fs.readFile(__dirname + "/leagues.json", 'utf8', function (err, data) {
+        if (err) {
+            console.error('Error reading file:', err);
+            res.status(500).json({ error: "Failed to read data file" });
+            return;
+        }
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (parseErr) {
+            console.error('Error parsing JSON:', parseErr);
+            res.status(500).json({ error: "Failed to parse data file" });
+            return;
+        }
+
+        const leagueID = parseInt(req.params.leagueID, 10);
+        const divisionID = parseInt(req.params.divisionID, 10);
+
+        console.log("Freeze Weeks: " + lastWeek);
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        res.header("Content-Type", "application/json");
+        res.send(JSON.stringify({ schedule: division.schedule }));
+    });
+})
+
 app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
     console.log("Request Received");
 
@@ -490,9 +531,12 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
 
         const leagueID = parseInt(req.params.leagueID, 10);
         const divisionID = parseInt(req.params.divisionID, 10);
+        const freezeWeeks = req.query.freezeWeeks.split(",");
+        const lastWeek = freezeWeeks.length ? parseInt(freezeWeeks[freezeWeeks.length - 1], 10) : 0;
+
+        console.log("Freeze Weeks: " + lastWeek);
 
         const league = parseData.leagues.find(league => league.id === leagueID);
-        console.log(league);
         if (!league) {
             res.status(404).json({ error: "League not found" });
             return;
@@ -506,8 +550,13 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
 
         console.log(division.teams);
 
-        const newSchedule = main(division.teams, division.timeslots);
-        division.schedule = newSchedule;
+        console.log("Old Schedule");
+        console.log(division.schedule);
+
+        const freezeSchedule = (division.schedule).slice(0, lastWeek);
+
+        const newSchedule = main(division.teams, division.timeslots, 0.5, lastWeek);
+        division.schedule = freezeSchedule.concat(newSchedule);
 
         fs.writeFile(__dirname + "/leagues.json", JSON.stringify(parseData, null, 2), 'utf8', (writeErr) => {
             if (writeErr) {
@@ -519,13 +568,6 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             console.log('New Schedule written to file successfully');
             res.status(200).json({ message: 'Schedule generated and saved successfully', schedule: newSchedule });
         });
-
-        console.log("New Schedule: "+newSchedule);
-        // if (!division.schedule) {
-        //     res.status(404).json({ error: "Schedule not found" });
-        //     return;
-        // }
-
     });
 });
 
@@ -613,7 +655,7 @@ app.get('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
         console.log("Current leagues: ", parseData);
 
         // Find the league with the given ID
-        const league = parseData.leagues.find(league => league.id === leagueID);
+        const league = parseData.leagues.find(league => league.id == leagueID);
         if (!league) {
             res.status(404).json({ error: "League not found" });
             return;
@@ -626,9 +668,9 @@ app.get('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
             return;
         }
 
+
         // Find the team index
         let teamIndex = division.teams.findIndex(t => t.id === newTeamID);
-        console.log("Index: " + teamIndex);
         if (teamIndex === -1) {
             res.status(404).json({ message: 'Team not found.' });
             return;
@@ -637,11 +679,215 @@ app.get('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
         let team = division.teams.find(t => t.id === (teamIndex+1));
         console.log(team);
 
+        console.log
+
         res.status(200).json({ team: team });
 
     });
 
 });
+
+app.get('/league/:leagueID/division/:divisionID/timeslot/:timeslotID', (req, res) => {
+    const divisionID = parseInt(req.params.divisionID);
+    const newTimeslotID = parseInt(req.params.timeslotID);
+    const leagueID = parseInt(req.params.leagueID, 10);
+
+    fs.readFile(__dirname + "/leagues.json", 'utf8', (err, data) => {
+        if (err) {
+            console.error("Error reading file:", err);
+            res.status(500).json({ error: "Error reading file" });
+            return;
+        }
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (jsonErr) {
+            console.error("Error parsing JSON:", jsonErr);
+            res.status(500).json({ error: "Error parsing JSON" });
+            return;
+        }
+
+        //console.log("Current leagues: ", parseData);
+
+        // Find the league with the given ID
+        const league = parseData.leagues.find(league => league.id == leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        // Find the division
+        let division = league.divisions.find(d => d.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ message: 'Division not found.' });
+            return;
+        }
+
+
+
+        // Find the team index
+        let timeslotIndex = division.timeslots.findIndex(t => t.id === newTimeslotID);
+        if (timeslotIndex === -1) {
+            res.status(404).json({ message: 'Timeslot not found.' });
+            return;
+        }
+
+        let timeslot = division.timeslots.find(t => t.id === (timeslotIndex+1));
+        console.log("Timeslot");
+        console.log(timeslot);
+
+        console.log
+
+        res.status(200).json({ timeslot: timeslot });
+
+    });
+
+});
+
+const jsonFilePath = path.join(__dirname, 'leagues.json');
+
+
+app.put('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
+    const divisionID = parseInt(req.params.divisionID);
+    const teamID = parseInt(req.params.teamID);
+    const leagueID = parseInt(req.params.leagueID, 10);
+        const teamData = req.body;
+
+    console.log(`Received PUT request for leagueID: ${leagueID}, divisionID: ${divisionID}, teamID: ${teamID}`);
+    console.log("Received teamData:", teamData);
+
+    // Check if the parameters are correctly extracted
+    if (!leagueID || !divisionID || !teamID) {
+        console.error('Missing parameters');
+        return res.status(400).send('Missing parameters.');
+    }
+
+    fs.readFile(__dirname + "/leagues.json", 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).send('An error occurred while reading the file.');
+        }
+
+        console.log('File read successfully');
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (jsonErr) {
+            console.error("Error parsing JSON:", jsonErr);
+            res.status(500).json({ error: "Error parsing JSON" });
+            return;
+        }
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            console.log('League not found');
+            return res.status(404).send('League not found.');
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            console.log('Division not found');
+            return res.status(404).send('Division not found.');
+        }
+
+        const teamIndex = division.teams.findIndex(team => team.id === teamID);
+        if (teamIndex === -1) {
+            console.log('Team not found');
+            return res.status(404).send('Team not found.');
+        }
+
+        // Ensure the teamData includes the id as an integer
+        teamData.id = teamID;
+
+        const updatedTeamData = { ...teamData, id: teamID };
+        delete updatedTeamData.teamID;
+
+        console.log("Updating team:", updatedTeamData);
+        division.teams[teamIndex] = updatedTeamData;
+
+        fs.writeFile(jsonFilePath, JSON.stringify(parseData, null, 2), 'utf8', (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return res.status(500).send('An error occurred while writing the file.');
+            }
+
+            res.status(200).json({ message: 'League updated successfully', data: parseData });
+        });
+    });
+});
+
+app.put('/league/:leagueID/division/:divisionID/timeslot/:timeslotID', (req, res) => {
+    const divisionID = parseInt(req.params.divisionID);
+    const timeslotID = parseInt(req.params.timeslotID);
+    const leagueID = parseInt(req.params.leagueID, 10);
+        const timeslotData = req.body;
+
+    console.log(`Received PUT request for leagueID: ${leagueID}, divisionID: ${divisionID}, timeslotID: ${timeslotID}`);
+    console.log("Received timeslot data:", timeslotData);
+
+    // Check if the parameters are correctly extracted
+    if (!leagueID || !divisionID || !timeslotID) {
+        console.error('Missing parameters');
+        return res.status(400).send('Missing parameters.');
+    }
+
+    fs.readFile(__dirname + "/leagues.json", 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).send('An error occurred while reading the file.');
+        }
+
+        console.log('File read successfully');
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (jsonErr) {
+            console.error("Error parsing JSON:", jsonErr);
+            res.status(500).json({ error: "Error parsing JSON" });
+            return;
+        }
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            console.log('League not found');
+            return res.status(404).send('League not found.');
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            console.log('Division not found');
+            return res.status(404).send('Division not found.');
+        }
+
+        const timeslotIndex = division.timeslots.findIndex(timeslot => timeslot.id === timeslotID);
+        if (timeslotIndex === -1) {
+            console.log('Timeslot not found');
+            return res.status(404).send('Timeslot not found.');
+        }
+
+        // Ensure the teamData includes the id as an integer
+        timeslotData.id = timeslotID;
+
+        const updatedTimeslotData = { ...timeslotData, id: timeslotID };
+        delete updatedTimeslotData.timeslotID;
+
+        console.log("Updating team:", updatedTimeslotData);
+        division.timeslots[timeslotIndex] = updatedTimeslotData;
+
+        fs.writeFile(jsonFilePath, JSON.stringify(parseData, null, 2), 'utf8', (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return res.status(500).send('An error occurred while writing the file.');
+            }
+
+            res.status(200).json({ message: 'League updated successfully', data: parseData });
+        });
+    });
+});
+
 
 
 app.delete('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {

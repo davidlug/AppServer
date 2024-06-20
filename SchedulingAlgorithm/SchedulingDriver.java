@@ -109,55 +109,55 @@ public class SchedulingDriver {
         try {
             timeSlots = new TimeSlot[] {
 
-                    new TimeSlot(sdf.parse("2024-05-12 15:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 16:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 17:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 18:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 19:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 20:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-12 21:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-15 18:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-15 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-15 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-15 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-22 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-22 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-22 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 17:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 18:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-26 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-29 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-29 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-05-29 21:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 17:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 18:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-02 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-05 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-05 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-05 21:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 17:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 18:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-09 21:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 17:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 18:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-16 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-19 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-19 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-06-19 21:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-23 17:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-23 18:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-23 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-23 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-26 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-26 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
-                    new TimeSlot(sdf.parse("2024-07-26 21:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                    new TimeSlot(sdf.parse("2024-05-12 15:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false),0),
+                    new TimeSlot(sdf.parse("2024-05-12 16:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                   // new TimeSlot(sdf.parse("2024-05-12 17:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0,0),
+                    //new TimeSlot(sdf.parse("2024-05-12 18:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0,0),
+                    // new TimeSlot(sdf.parse("2024-05-12 19:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0,0),
+                    // new TimeSlot(sdf.parse("2024-05-12 20:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0,0),
+                    // new TimeSlot(sdf.parse("2024-05-12 21:30:00"), calendar, 1, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0,0),
+                    //new TimeSlot(sdf.parse("2024-05-15 18:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-15 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-15 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-15 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 1),
+                    // new TimeSlot(sdf.parse("2024-05-22 19:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-22 20:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-22 21:30:00"), calendar, 2, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-26 17:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-26 18:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    new TimeSlot(sdf.parse("2024-05-26 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-26 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-29 19:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-29 20:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-05-29 21:30:00"), calendar, 3, new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-02 17:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-02 18:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-02 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-02 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-05 19:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-05 20:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-05 21:30:00"), calendar, 4, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-09 17:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-09 18:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-09 19:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-09 20:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-09 21:30:00"), calendar, 5, new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-16 17:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-16 18:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-16 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-16 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-19 19:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-19 20:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-06-19 21:30:00"), calendar, 6, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-23 17:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-23 18:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-23 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-23 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-26 19:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-26 20:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
+                    // new TimeSlot(sdf.parse("2024-07-26 21:30:00"), calendar, 7, new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
             };
 
             for (int i = 0; i < timeSlots.length; i++) {
@@ -192,9 +192,9 @@ public class SchedulingDriver {
                         return 0;
                     }
                 });
-                for (int j = 0; j < scheduleByWeeks.get(i).size(); j++) {
-                    scheduleByWeeks.get(i).get(j).setWeight(j);
-                }
+                // for (int j = 0; j < scheduleByWeeks.get(i).size(); j++) {
+                //     scheduleByWeeks.get(i).get(j).setWeight(j);
+                // }
             }
 
         } catch (ParseException e) {
@@ -269,7 +269,7 @@ public class SchedulingDriver {
 
                 System.out.println(maxWeight - minWeight);
 
-                if (maxWeight - minWeight > 0.25*returnSchedule.get(1).size()-0.75) {
+                if (maxWeight - minWeight > 0.5) {
                     for (int a = 0; a < teamCopy.size(); a++) {
                         teamCopy.get(a).resetScheduleWeight();
                     }

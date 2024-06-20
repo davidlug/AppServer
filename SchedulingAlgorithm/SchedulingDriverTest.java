@@ -23,29 +23,29 @@ public class SchedulingDriverTest {
 
         List<TimeSlot> timeSlots = Arrays.asList(
             new TimeSlot(sdf.parse("2024-05-12 18:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-05-12 19:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-05-12 20:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-05-12 21:00:00"), calendar, 1,
-                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Red Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-05-26 17:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
                     new TimeSlot(sdf.parse("2024-05-26 18:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
                     new TimeSlot(sdf.parse("2024-05-26 19:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
                     new TimeSlot(sdf.parse("2024-05-26 20:00:00"), calendar, 2,
-                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false)),
+                            new PlayingLocation("Centre Ice Sportsplex", "Rink 1", false), 0),
                     new TimeSlot(sdf.parse("2024-06-02 16:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-06-02 18:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-06-02 19:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false)),
+                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0),
                     new TimeSlot(sdf.parse("2024-06-02 20:00:00"), calendar, 3,
-                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false))
+                            new PlayingLocation("Allandale Recreation Centre", "Blue Rink", false), 0)
         );
         List<List<TimeSlot>> scheduleByWeeks = createWeeklySchedule(timeSlots);
         List<Match> matches = generateRoundRobinMatches(teams);
