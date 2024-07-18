@@ -80,7 +80,7 @@ public class SchedulingDriver {
 
         // teams.add(new Team("Team 7", "A"));
         // teams.add(new Team("Team 8", "A"));
-        // teams.add(new Team("Team 9", "A"));
+        // teams.add(new Team("Kuznetsov's Ski School", "A"));
         // teams.add(new Team("Team 10", "A"));
         // teams.add(new Team("Team 11", "A"));
         // teams.add(new Team("Team 12", "A"));
