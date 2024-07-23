@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lugscheduler-dev-f5e13-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891377113643:role/amplify-lugscheduler-dev-f5e13-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891377113643:role/amplify-lugscheduler-dev-f5e13-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-lugscheduler-dev-f5e13-deployment",
+      "UnauthRoleName": "amplify-lugscheduler-dev-f5e13-unauthRole",
+      "StackName": "amplify-lugscheduler-dev-f5e13",
+      "StackId": "arn:aws:cloudformation:ca-central-1:891377113643:stack/amplify-lugscheduler-dev-f5e13/4128b740-4847-11ef-a184-02ec4f0794e1",
+      "AmplifyAppId": "d19js77c1dipdm"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d19js77c1dipdm",
+          "type": "manual"
+        }
+      },
+      "function": {
+        "LugSchedule": {
+          "deploymentBucketName": "amplify-lugscheduler-dev-f5e13-deployment",
+          "s3Key": "amplify-builds/LugSchedule-6375567469326f337646-build.zip"
+        }
+      },
+      "api": {
+        "apife2173e2": {}
+      }
+    }
+  }
+}

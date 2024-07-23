@@ -1,99 +1,63 @@
-class Team {
-    constructor(teamName, skillLevel) {
-        this.teamName = teamName;
-        this.skillLevel = skillLevel;
-        this.scheduleWeight = 0;
-    }
+import exp from "constants";
 
-    getTeamName() {
-        return this.teamName;
-    }
+interface Team {
+    id: number;
+    teamName: string;
+    Players: number;
+    weight: number;
+    numGames: number;
+    gamesPlayed: number;
+    Division: string;
+  }
+  
+  interface Division {
+    divisionID: number;
+    divisionName: String;
+    teams: Team[];
+    timeslots: TimeSlot[];
+    schedule: TimeSlot[][];
+  }
+  
+  interface TimeSlot{
+      week: number;
+      date: string;
+      startTime: string;
+      endTime: string;
+      facility: string;
+      rink: string;
+      extra: string;
+      additionalData?: string[];
+      weight: number;
+      id: number;
+      match?: Match;
+      gamesPlayed: number;
+  
+  }
+  
+  interface Match {
+      homeTeam: Team;
+      awayTeam: Team;
+  }
+  
+  interface League {
+    id: number;
+    divisions: Division[];
+  }
 
-    setScheduleWeight(weight) {
-        this.scheduleWeight += weight;
-    }
-
-    resetScheduleWeight() {
-        this.scheduleWeight = 0;
-    }
-}
-
-class Match {
-    constructor(homeTeam, awayTeam) {
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.gamesPlayed = 0;
-    }
-
-    getHomeTeam() {
-        return this.homeTeam;
-    }
-
-    getAwayTeam() {
-        return this.awayTeam;
-    }
-
-    toString() {
-        //return `${this.homeTeam.getTeamName()} vs ${this.awayTeam.getTeamName()}`;
-    }
-}
-
-class TimeSlot {
-    constructor(date, week, playingLocation, lateGame = false) {
-        this.date = new Date(date);
-        this.week = week;
-        this.playingLocation = playingLocation;
-        this.weight = 0;
-        this.match = null;
-        this.lateGame = lateGame;
-    }
-
-    getDate() {
-        return this.date;
-    }
-
-    getWeek() {
-        return this.week;
-    }
-
-    setMatch(match) {
-        this.match = match;
-    }
-
-    getMatch() {
-        return this.match;
-    }
-
-    setWeight(weight) {
-        this.weight = weight;
-    }
-
-    toString() {
-        return `${this.date} - ${this.match}`;
-    }
-}
-
-class PlayingLocation {
-    constructor(name, rink, isOutdoor) {
-        this.name = name;
-        this.rink = rink;
-        this.isOutdoor = isOutdoor;
-    }
-}
-
-function matchupGenerator(teams) {
-    const matchups = [];
+  function matchupGenerator(teams: Team[]): Match[] {
+    const matchups: Match[] = [];
     for (let i = 0; i < teams.length; i++) {
         const homeTeam = teams[i];
         for (let j = 0; j < teams.length; j++) {
             if (i !== j) {
                 const awayTeam = teams[j];
-                matchups.push(new Match(homeTeam, awayTeam));
+                matchups.push({ homeTeam, awayTeam });
             }
         }
     }
     return matchups;
 }
+
 
 function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed) {
     const MAX_RETRIES = 100000; // Set a maximum number of retries to avoid infinite loops
@@ -266,7 +230,7 @@ function generateExtraSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlaye
     }
 
     let retries = 0;
-    let result = null;
+    let result = schedule();
 
     while (retries < MAX_RETRIES && result === null) {
         result = schedule();
@@ -299,15 +263,17 @@ function generateExtraSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlaye
 
 function main(teams, timeSlots, balanceValue, lastWeek) {
     console.log("Main Teams");
-    let teamsGamesPlayed = [...teams];
-    let returnedSchedule = [];
-    var teamCopy = teams.map(team => ({ ...team, weight: 0 }));
-    let numGameValues = [];
+    let teamsGamesPlayed: any[] = [...teams];
+    let returnedSchedule: any[] = [];
+    let teamCopy: Array<{ [key: string]: any; weight: number }> = teams.map(team => ({ ...team, weight: 0 }));
+    let numGameValues: number[] = [];
     console.log(teams);
-
+    
     for (let i = 0; i < teams.length; i++) {
-        numGameValues.push(teams[i].numGames)
+        numGameValues.push(teams[i].numGames);
     }
+    
+    
 
     console.log(numGameValues);
 
@@ -322,8 +288,8 @@ function main(teams, timeSlots, balanceValue, lastWeek) {
 
     timeSlots.sort((a, b) => a.week - b.week);
 
-    const scheduleByWeeks = [];
-    const extraWeeks = [];
+    const scheduleByWeeks:TimeSlot[][] = [];
+    const extraWeeks:TimeSlot[] = [];
     for (let i = 0; i < timeSlots[timeSlots.length - 1].week; i++) {
         scheduleByWeeks.push([]);
     }
@@ -337,86 +303,79 @@ function main(teams, timeSlots, balanceValue, lastWeek) {
     }
 
     for (let week of scheduleByWeeks) {
-        week.sort((t1, t2) => new Date(t1.date) - new Date(t2.date));
+        week.sort((t1: { date: string }, t2: { date: string }) => new Date(t1.date).getTime() - new Date(t2.date).getTime());
     }
+    
 
-    let freezeWeeks = lastWeek || 0;
-    let frozenSchedule = scheduleByWeeks.slice(0, freezeWeeks);
-    let scheduleToGenerate = scheduleByWeeks.slice(freezeWeeks);
+    let freezeWeeks: number = lastWeek || 0;
+let frozenSchedule: Array<Array<any>> = scheduleByWeeks.slice(0, freezeWeeks);
+let scheduleToGenerate: Array<any> = scheduleByWeeks.slice(freezeWeeks);
 
-    for (let i = 0; i < frozenSchedule.length; i++) {
-        for (let k = 0; k < frozenSchedule[i].length; k++) {
-            let timeslot = frozenSchedule[i][k];
-            if (timeslot.match) {
-                let chosenMatch = timeslot.match;
-                matchups = matchups.filter(match =>
-                    !(match.homeTeam === chosenMatch.homeTeam && match.awayTeam === chosenMatch.awayTeam) &&
-                    !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
-                );
-            }
+for (let i: number = 0; i < frozenSchedule.length; i++) {
+    for (let k: number = 0; k < frozenSchedule[i].length; k++) {
+        let timeslot: any = frozenSchedule[i][k];
+        if (timeslot.match) {
+            let chosenMatch: any = timeslot.match;
+            matchups = matchups.filter(match =>
+                !(match.homeTeam === chosenMatch.homeTeam && match.awayTeam === chosenMatch.awayTeam) &&
+                !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
+            );
         }
     }
+}
 
-    console.log("Frozen Schedule");
-    console.log(frozenSchedule);
-    for (let i = 0; i < frozenSchedule.length; i++) {
-        for (let p = 0; p < frozenSchedule[i].length; p++) {
-            for (let k = 0; k < teams.length; k++) {
-                if (frozenSchedule[i][p].match) {
-                    if (frozenSchedule[i][p].match.homeTeam.teamName === teams[k].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teams[k].teamName) {
-                        teams[k].gamesPlayed++;
-                    }
-
+console.log("Frozen Schedule");
+console.log(frozenSchedule);
+for (let i: number = 0; i < frozenSchedule.length; i++) {
+    for (let p: number = 0; p < frozenSchedule[i].length; p++) {
+        for (let k: number = 0; k < teams.length; k++) {
+            if (frozenSchedule[i][p].match) {
+                if (frozenSchedule[i][p].match.homeTeam.teamName === teams[k].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teams[k].teamName) {
+                    teams[k].gamesPlayed++;
                 }
             }
-            for (let m = 0; m < teamsGamesPlayed.length; m++) {
-                if (frozenSchedule[i][p].match.homeTeam.teamName === teamsGamesPlayed[m].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teamsGamesPlayed[m].teamName) {
-                    // console.log("Selected Match");
-                    // console.log(frozenSchedule[i][p].match);
-                    console.log(`419-- ${teamsGamesPlayed[m].numGames} ${teamsGamesPlayed[m].teamName}`)
-                    teamsGamesPlayed[m].numGames--;
-                }
-
+        }
+        for (let m: number = 0; m < teamsGamesPlayed.length; m++) {
+            if (frozenSchedule[i][p].match.homeTeam.teamName === teamsGamesPlayed[m].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teamsGamesPlayed[m].teamName) {
+                console.log(`419-- ${teamsGamesPlayed[m].numGames} ${teamsGamesPlayed[m].teamName}`);
+                teamsGamesPlayed[m].numGames--;
             }
         }
-
     }
+}
 
-    let scheduleSections = [];
-    console.log(teams.length);
-    console.log(scheduleToGenerate.length);
-    if (teams.length <= scheduleToGenerate.length) {
-        console.log("Mod Result");
-        let numberRepeats = Math.floor(scheduleToGenerate.length / teams.length);
-        console.log(Math.floor(scheduleToGenerate.length / teams.length));
-        let backup = scheduleToGenerate;
-        let start = 0;
-        let end = teams.length - 1;
-        for (let i = 0; i < numberRepeats + 2; i++) {
-            // console.log(start)
-            // console.log(end)
-            scheduleToGenerate = backup.slice(start, end);
-            // console.log(scheduleToGenerate);
-            scheduleSections.push(scheduleToGenerate);
-            start = start + teams.length - 1;
-            end = end + teams.length - 1;
 
-            if (end > backup.length) {
-                end = backup.length;
-            }
+
+let scheduleSections: any[] = [];
+console.log(teams.length);
+console.log(scheduleToGenerate.length);
+if (teams.length <= scheduleToGenerate.length) {
+    console.log("Mod Result");
+    let numberRepeats: number = Math.floor(scheduleToGenerate.length / teams.length);
+    console.log(Math.floor(scheduleToGenerate.length / teams.length));
+    let backup: any[] = scheduleToGenerate;
+    let start: number = 0;
+    let end: number = teams.length - 1;
+    for (let i = 0; i < numberRepeats + 2; i++) {
+        scheduleToGenerate = backup.slice(start, end);
+        scheduleSections.push(scheduleToGenerate);
+        start = start + teams.length - 1;
+        end = end + teams.length - 1;
+
+        if (end > backup.length) {
+            end = backup.length;
         }
-        //console.log(scheduleSections);
-
-        // console.log(scheduleToGenerate);
-        // console.log("Pause");
-         repeatSchedule = backup.slice(teams.length - 1);
-        console.log(repeatSchedule);
     }
+    let repeatSchedule: any[] = backup.slice(teams.length - 1);
+    console.log(repeatSchedule);
+}
+
+
 
     // console.log("Sliced");
     // console.log(repeatSchedule);
 
-    let returnSchedule = [[]];
+    let returnSchedule:any[] = [[]];
     console.log("ScheduleSections");
     console.log(scheduleSections);
 for (let i = 0; i < scheduleSections.length; i++) {
@@ -580,7 +539,7 @@ console.log(returnSchedule);
 
             for (let i = 0; i < scheduleByWeeks[k].length; i++) {
 
-                const chosenMatch = scheduleByWeeks[k][i].match;
+                const chosenMatch:any = scheduleByWeeks[k][i].match;
 
                 for (let p = 0; p < teamsGamesPlayed.length; p++) {
                     if (chosenMatch.homeTeam.teamName == teamsGamesPlayed[p].teamName || chosenMatch.awayTeam.teamName == teamsGamesPlayed[p].teamName) {
@@ -607,7 +566,7 @@ console.log(returnSchedule);
     console.log(finalSchedule);
 
 
-    let leftoverMatchupsArray = [];
+    let leftoverMatchupsArray:any[] = [];
     for (let i = 0; i < scheduleByWeeks.length; i++) {
         leftoverMatchupsArray.push(matchups);
     }
@@ -640,42 +599,26 @@ console.log(returnSchedule);
 
         }
     }
-    console.log("leftoverMatchupsArray")
-    for (let i = 0; i < leftoverMatchupsArray; i++) {
-        for (let k = 0; k < leftoverMatchupsArray[i]; k++) {
-            console.log(leftoverMatchupsArray[i][k]);
-
-        }
-    }
+    
 
 
-    // console.log("Final leftoverMatchups:");
-    // console.log(leftoverMatchups.map(m => `${m.homeTeam.teamName} vs ${m.awayTeam.teamName}`));
-    //console.log(leftoverMatchups);
-    console.log("Before extra");
-    // console.log(teamsGamesPlayed);
-    console.log(extraWeeks);
+    
+    
     let extraSchedule = generateExtraSchedule(matchups, extraWeeks, teams, teamsGamesPlayed);
     console.log("Bonus Games");
-    //console.log(extraSchedule[0].week);
-
-    // console.log(extraSchedule);
+    
     for (let extraWeek of extraSchedule) {
-        // console.log(extraWeek);
         let weekNumber = extraWeek.week - 1;  // Adjusting week index (assuming week is 1-based)
         if (!finalSchedule[weekNumber]) {
             finalSchedule[weekNumber] = [];
         }
         finalSchedule[weekNumber] = finalSchedule[weekNumber].concat(extraWeek);
-        finalSchedule[weekNumber].sort((a, b) => new Date(a.date) - new Date(b.date));
+        finalSchedule[weekNumber].sort((a, b) => (a.date) - (b.date));
     }
 
     console.log("Final");
-    //  console.log(finalSchedule);
-
     for (let week of finalSchedule) {
-        // console.log("Week");
-        // console.log(week);
+        
         for (let ts of week) {
             if (ts.match) {
                 ts.match.homeTeam.gamesPlayed++;
@@ -684,45 +627,13 @@ console.log(returnSchedule);
         }
     }
 
-    console.log("Return");
-    //console.log(returnSchedule);
-
-    // if (repeatSchedule.length > 0) {
-    //     console.log("Yes");
-    //    // console.log(repeatSchedule.length);
-
-    //     for (let i = 0; i < repeatSchedule.length; i++) {
-    //         // Initialize the sub-array if it doesn't exist
-    //         if (!repeatSchedule[i]) {
-    //             repeatSchedule[i] = [];
-    //         }
-    //         for (let j = 0; j < repeatSchedule[i].length; j++) {
-    //             // Calculate the indices in returnSchedule using the modulus operator
-    //             let returnI = i % returnSchedule.length;
-    //             let returnJ = j % returnSchedule[returnI].length;
-    //             if (!repeatSchedule[i][j]) {
-    //                 repeatSchedule[i][j] = {};
-    //             }
-    //             repeatSchedule[i][j].match = returnSchedule[returnI][returnJ].match;
-    //         }
-    //     }
-    // }
-
-
-
-    console.log("Repeat");
-    // console.log(repeatSchedule);
-
-    //finalSchedule = finalSchedule.concat(repeatSchedule);
-
     for (let i = 0; i < teams.length; i++) {
         teams[i].numGames = numGameValues[i];
     }
-    //console.log(teams);
     console.log(finalSchedule)
     return finalSchedule;
 }
 
 
 
-module.exports = { Team, TimeSlot, PlayingLocation, main };
+export {main};
