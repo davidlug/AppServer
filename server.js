@@ -10,12 +10,6 @@ const { scheduler } = require('timers/promises');
 app.use(cors())
 app.use(bodyParser.json());
 
-app.get('/teams', function (req, res) {
-    fs.readFile(__dirname + "/" + "teams.json", 'utf8', function (err, data) {
-        //console.log(data);
-        res.end(data);
-    });
-})
 
 app.get('/leagues', function (req, res) {
     fs.readFile(__dirname + "/" + "leagues.json", 'utf8', function (err, data) {
@@ -1255,15 +1249,6 @@ app.put('/league/:id', function (req, res) {
 });
 
 
-app.get('/:id', function (req, res) {
-    fs.readFile(__dirname + "/" + "teams.json", 'utf8', function (err, data) {
-        var teams = JSON.parse(data);
-        id = 5;
-        var team = teams["team" + id]
-        //var team = teams["team" + req.params.id] 
-        console.log(team);
-        res.end(JSON.stringify(team));
-    });
-})
+
 
 
