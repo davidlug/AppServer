@@ -252,7 +252,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
                     teamsGamesPlayed.slice(0, 2).some(team => team.teamName === match.homeTeam.teamName || team.teamName === match.awayTeam.teamName)
                 );
 
-                for (let i = 0; i < tempSchedule[k].length; i++) {
+                for (let i = 0; i < tempSchedule[k].length; i++) { 
 
                     // if(weekMatchups.length == 0)
                     //     {
