@@ -812,165 +812,64 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
         teams[i].numGames = numGameValues[i];
     }
 
-    console.log("Entering final check");
-    // Flatten the finalSchedule into a single array for easy date conflict checking
-// Flatten the finalSchedule into a single array for easy date conflict checking
-// Flatten the finalSchedule into a single array for easy date conflict checking
-let flattenedSchedule = [];
 
-for (let i = 0; i < finalSchedule.length; i++) {
-    for (let k = 0; k < finalSchedule[i].length; k++) {
-        flattenedSchedule.push({
-            weekIndex: i,
-            matchIndex: k,
-            date: finalSchedule[i][k].date,
-            match: finalSchedule[i][k].match
-        });
-    }
-}
+    if(finalSchedule.length > 1)
+    {
+        console.log("Entering final check");
+        for(let i = 1; i < finalSchedule.length; i++)
+        {
+            let analyzeWeeks = finalSchedule.slice(0, i);
+            let currentWeek = finalSchedule[i];
 
-// Function to check if a match has a conflict on a given date
-function hasConflict(match, date, weekMatches) {
-    for (let game of weekMatches) {
-        if (game.date === date && (
-            match.homeTeam.teamName === game.match.homeTeam.teamName ||
-            match.homeTeam.teamName === game.match.awayTeam.teamName ||
-            match.awayTeam.teamName === game.match.homeTeam.teamName ||
-            match.awayTeam.teamName === game.match.awayTeam.teamName
-        )) {
-            return true;
-        }
-    }
-    return false;
-}
 
-// Function to resolve conflicts by swapping matchups within the same week
-function resolveConflict(weekMatches, conflictMatchIndex, date) {
-    let conflictMatch = weekMatches[conflictMatchIndex].match;
-
-    for (let k = 0; k < weekMatches.length; k++) {
-        if (k !== conflictMatchIndex) {
-            let potentialSwapMatch = weekMatches[k].match;
-
-            if (!hasConflict(potentialSwapMatch, date, weekMatches)) {
-                console.log("Swapping matchups to resolve conflict within the same week...");
-
-                // Swap the matchups
-                weekMatches[conflictMatchIndex].match = potentialSwapMatch;
-                weekMatches[k].match = conflictMatch;
-
-                return true; // Conflict resolved
-            }
-        }
-    }
-
-    return false; // No valid swap found
-}
-
-// Check for conflicts across the flattened schedule
-for (let i = 0; i < flattenedSchedule.length; i++) {
-    let chosenDate = flattenedSchedule[i].date;
-    let chosenMatch = flattenedSchedule[i].match;
-    let conflictFound = false;
-
-    for (let j = i + 1; j < flattenedSchedule.length; j++) {
-        let checkDate = flattenedSchedule[j].date;
-        let checkMatch = flattenedSchedule[j].match;
-
-        if (checkDate === chosenDate) {
-            console.log(checkMatch.homeTeam.teamName + " vs " + checkMatch.awayTeam.teamName);
-            console.log(chosenMatch.homeTeam.teamName + " vs " + chosenMatch.awayTeam.teamName);
-
-            if (
-                chosenMatch.homeTeam.teamName === checkMatch.homeTeam.teamName ||
-                chosenMatch.homeTeam.teamName === checkMatch.awayTeam.teamName ||
-                chosenMatch.awayTeam.teamName === checkMatch.homeTeam.teamName ||
-                chosenMatch.awayTeam.teamName === checkMatch.awayTeam.teamName
-            ) {
-                conflictFound = true;
-
-                console.log("Conflict found on " + chosenDate );
-                console.log(
-                    "Conflicting matches: " +
-                    chosenMatch.homeTeam.teamName + " vs " + chosenMatch.awayTeam.teamName + " and " +
-                    checkMatch.homeTeam.teamName + " vs " + checkMatch.awayTeam.teamName
-                );
-
-                // Attempt to resolve the conflict by swapping the second conflicting match within the same week
-                let currentWeekIndex = flattenedSchedule[j].weekIndex;
-                let conflictMatchIndex = flattenedSchedule[j].matchIndex;
-                let weekMatches = finalSchedule[currentWeekIndex];
-
-                let conflictResolved = false;
-
-                for (let k = 0; k < weekMatches.length; k++) {
-                    if (k !== conflictMatchIndex) { // Avoid swapping with the same match
-                        let potentialSwapMatch = weekMatches[k].match;
-
-                        // Check if the potential swap match doesn't create a conflict
-                        let swapConflict = false;
-                        for (let game of weekMatches) {
-                            if (game.date === checkDate && (
-                                potentialSwapMatch.homeTeam.teamName === game.match.homeTeam.teamName ||
-                                potentialSwapMatch.homeTeam.teamName === game.match.awayTeam.teamName ||
-                                potentialSwapMatch.awayTeam.teamName === game.match.homeTeam.teamName ||
-                                potentialSwapMatch.awayTeam.teamName === game.match.awayTeam.teamName
-                            )) {
-                                console.log(game.week + " issue");
-                                swapConflict = true;
-                                break;
-                            }
-                        }
-
-                        if (!swapConflict) {
-                            console.log("Swapping second conflicting matchup within the same week...");
-                            let possibleSwaps = [];
-                            for(let i = 0; i < weekMatches.length; i++)
+            for(let m = 0; m < currentWeek.length; m++)
+            {
+                let currentDate = currentWeek[m].date;
+                let currentMatch = currentWeek[m].match;
+                for(let k = 0; k < analyzeWeeks.length; k++)
+                {
+                    for(let o = 0; o < analyzeWeeks[k].length; o++)
+                        {
+                            let selectDate = analyzeWeeks[k][o].date;
+                            let selectMatch = analyzeWeeks[k][o].match;
+                            if(selectDate == currentDate)
                             {
-                                possibleSwaps.push(weekMatches[i].match);
+                                console.log("Check match");
+                                console.log(selectDate);
+                                
+                                if(selectMatch.homeTeam.teamName == currentMatch.homeTeam.teamName 
+                                    || selectMatch.awayTeam.teamName == currentMatch.homeTeam.teamName 
+                                    || selectMatch.homeTeam.teamName == currentMatch.awayTeam.teamName 
+                                    || selectMatch.awayTeam.teamName == currentMatch.awayTeam.teamName)
+                                    {
+                                        console.log("Flagged");
+                                        console.log(selectMatch.homeTeam.teamName + " vs "+ selectMatch.awayTeam.teamName);
+                                        console.log(currentMatch.homeTeam.teamName + " vs "+ currentMatch.awayTeam.teamName);
+                                        console.log("Choose from");
+                                        console.log(currentWeek.map(section => section.match.homeTeam.teamName + " vs "+ section.match.awayTeam.teamName));
+                                        for(let a = 0; a < currentWeek.length; a++)
+                                        {
+                                            if(currentWeek[a].match.homeTeam.teamName != selectMatch.homeTeam.teamName 
+                                                && currentWeek[a].match.homeTeam.teamName != selectMatch.awayTeam.teamName 
+                                                && currentWeek[a].match.awayTeam.teamName != selectMatch.homeTeam.teamName 
+                                                && currentWeek[a].match.awayTeam.teamName != selectMatch.awayTeam.teamName)
+                                                {
+                                                    console.log("Can swap " + currentMatch.homeTeam.teamName + " vs " + currentMatch.awayTeam.teamName+ " with " + currentWeek[a].match.homeTeam.teamName + " vs " + currentWeek[a].match.awayTeam.teamName);
+                                                    console.log(currentWeek[m]);
+                                                    console.log(currentWeek[a]);
+                                                    let tempMatch = currentWeek[m].match;
+                                                    currentWeek[m].match = currentWeek[a].match;
+                                                    currentWeek[a].match = tempMatch;
+                                                }
+                                        }
+                                    }
                             }
-                            console.log("Possible swaps ");
-                            console.log(possibleSwaps.map(match => match.homeTeam.teamName + " vs "+match.awayTeam.teamName));
-                            console.log(chosenMatch);
-                            console.log(checkMatch);
-                            possibleSwaps = possibleSwaps.filter(match => 
-                                !(chosenMatch.homeTeam.teamName == match.homeTeam.teamName 
-                                || chosenMatch.awayTeam.teamName == match.homeTeam.teamName 
-                                || chosenMatch.homeTeam.teamName == match.awayTeam.teamName 
-                                || chosenMatch.awayTeam.teamName == match.awayTeam.teamName
-                                || checkMatch.homeTeam.teamName == match.homeTeam.teamName 
-                                || checkMatch.awayTeam.teamName == match.homeTeam.teamName 
-                                || checkMatch.homeTeam.teamName == match.awayTeam.teamName 
-                                || checkMatch.awayTeam.teamName == match.awayTeam.teamName)
-                            );
-                            console.log("After filtered");
-                            console.log(possibleSwaps.map(match => match.homeTeam.teamName + " vs "+match.awayTeam.teamName));
-                            if (possibleSwaps.length > 0) {
-                                const randomIndex = Math.floor(Math.random() * possibleSwaps.length);
-                                const randomMatch = possibleSwaps[randomIndex];
-                                weekMatches[conflictMatchIndex].match = potentialSwapMatch;
-                                console.log("Randomly selected match:", randomMatch);
-                            } else {
-                                console.log("No possible matches available.");
-                            }
-                            weekMatches[k].match = checkMatch;
-
-                            conflictResolved = true; // Conflict resolved
-                            break;
                         }
-                    }
                 }
-
-                if (!conflictResolved) {
-                    console.log("Unable to resolve conflict for " + checkMatch.homeTeam.teamName + " vs " + checkMatch.awayTeam.teamName);
-                }
-
-                break; // Exit the inner loop if the conflict is resolved or cannot be resolved
             }
         }
     }
-}
-
+    
 
 
 

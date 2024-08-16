@@ -590,6 +590,8 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
 
         console.log("teamCount");
         console.log(teamCount);
+        division.schedule = newSchedule;
+
         console.log(division.schedule.length);
 
         // Example: log the matchup counts
@@ -659,7 +661,6 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
         }
 
 
-        division.schedule = newSchedule;
 
         // Reset games played count
         for (let team of division.teams) {
