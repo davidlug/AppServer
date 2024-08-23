@@ -111,7 +111,7 @@ app.get('/leagues/:leagueID/divisions/:divisionID/teams', (req, res) => {
             return;
         }
 
-        res.json({ teams: division.teams || [], divisionName: division.divisionName, leagueName: league.league });
+        res.json({ teams: division.teams || [], divisionName: division.divisionName, leagueName: league.league, lastAccessedSchedule : division.lastAccessedSchedule });
     });
 });
 
@@ -500,7 +500,11 @@ app.get('/league/:leagueID/division/:divisionID/schedules', function (req, res) 
         }
 
         res.header("Content-Type", "application/json");
-        res.send(JSON.stringify({ schedule: division.schedule }));
+      
+            res.send(JSON.stringify({ schedule: division.schedule }));
+
+        
+
     });
 })
 
@@ -537,17 +541,12 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
         const freezeWeeks = req.query.freezeWeeks ? req.query.freezeWeeks.split(",") : [];
         const lastWeek = freezeWeeks.length ? parseInt(freezeWeeks[freezeWeeks.length - 1], 10) : 0;
 
-        // console.log("Parsed Data:");
-        // console.log(parseData);
-
         const league = parseData.leagues.find(league => league.id === leagueID);
         if (!league) {
             console.error("League not found:", leagueID);
             res.status(404).json({ error: "League not found" });
             return;
         }
-
-        //console.log("League found:", league);
 
         const division = league.divisions.find(division => division.divisionID === divisionID);
         if (!division) {
@@ -556,24 +555,25 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             return;
         }
 
-        // console.log("Division found:", division);
+        // Initialize or update the schedule history
+        if (!division.scheduleHistory) {
+            division.scheduleHistory = [];
+        }
 
         // Generate new schedule
         let newSchedule = main(division.teams, division.timeslots, lastWeek, division.schedule);
-
         let gooseEgg = false;
 
         const teamCount = division.teams.length;
         const matchupCounts = Array.from({ length: teamCount }, () => Array(teamCount).fill(0));
 
-        // Populate the matchup counts based on the new schedule
         for (let week of newSchedule) {
             for (let timeslot of week) {
                 if (timeslot.match) {
                     const homeTeamName = timeslot.match.homeTeam.teamName;
                     const awayTeamName = timeslot.match.awayTeam.teamName;
 
-                    if (homeTeamName != awayTeamName) {
+                    if (homeTeamName !== awayTeamName) {
                         const homeTeamIndex = division.teams.findIndex(team => team.teamName === homeTeamName);
                         const awayTeamIndex = division.teams.findIndex(team => team.teamName === awayTeamName);
 
@@ -582,29 +582,17 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
                             matchupCounts[awayTeamIndex][homeTeamIndex]++; // Since it's a symmetric relation
                         }
                     }
-
-
                 }
             }
         }
 
-        console.log("teamCount");
-        console.log(teamCount);
         division.schedule = newSchedule;
 
-        console.log(division.schedule.length);
-
-        // Example: log the matchup counts
-        console.log("Matchup Counts:");
         for (let i = 0; i < teamCount; i++) {
             for (let j = 0; j < teamCount; j++) {
-                if (division.teams[i].teamName != division.teams[j].teamName) {
-                    console.log(`Team ${division.teams[i].teamName} vs Team ${division.teams[j].teamName}: ${matchupCounts[i][j]} times`);
-                    if (matchupCounts[i][j] == 0) {
-                        console.log("Flagged");
-                        console.log(`Team ${division.teams[i].teamName} vs Team ${division.teams[j].teamName}: ${matchupCounts[i][j]} times`);
-                        if(division.schedule.length >= teamCount)
-                        {
+                if (division.teams[i].teamName !== division.teams[j].teamName) {
+                    if (matchupCounts[i][j] === 0) {
+                        if (division.schedule.length >= teamCount) {
                             gooseEgg = true;
                         }
                     }
@@ -612,22 +600,20 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             }
         }
 
-        while (gooseEgg == true) {
+        while (gooseEgg) {
             gooseEgg = false;
-            console.log("Redo main");
 
             newSchedule = main(division.teams, division.timeslots, lastWeek, division.schedule);
             const teamCount = division.teams.length;
             const matchupCounts = Array.from({ length: teamCount }, () => Array(teamCount).fill(0));
 
-            // Populate the matchup counts based on the new schedule
             for (let week of newSchedule) {
                 for (let timeslot of week) {
                     if (timeslot.match) {
                         const homeTeamName = timeslot.match.homeTeam.teamName;
                         const awayTeamName = timeslot.match.awayTeam.teamName;
 
-                        if (homeTeamName != awayTeamName) {
+                        if (homeTeamName !== awayTeamName) {
                             const homeTeamIndex = division.teams.findIndex(team => team.teamName === homeTeamName);
                             const awayTeamIndex = division.teams.findIndex(team => team.teamName === awayTeamName);
 
@@ -636,23 +622,14 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
                                 matchupCounts[awayTeamIndex][homeTeamIndex]++; // Since it's a symmetric relation
                             }
                         }
-
-
                     }
                 }
             }
 
-            console.log(teamCount);
-
-            // Example: log the matchup counts
-            console.log("Matchup Counts:");
             for (let i = 0; i < teamCount; i++) {
                 for (let j = 0; j < teamCount; j++) {
-                    if (division.teams[i].teamName != division.teams[j].teamName) {
-                        console.log(`Team ${division.teams[i].teamName} vs Team ${division.teams[j].teamName}: ${matchupCounts[i][j]} times`);
-                        if (matchupCounts[i][j] == 0) {
-                            console.log("Flagged");
-                            console.log(`Team ${division.teams[i].teamName} vs Team ${division.teams[j].teamName}: ${matchupCounts[i][j]} times`);
+                    if (division.teams[i].teamName !== division.teams[j].teamName) {
+                        if (matchupCounts[i][j] === 0) {
                             gooseEgg = true;
                         }
                     }
@@ -660,7 +637,13 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             }
         }
 
+        // Add the new schedule to the history
+        // division.scheduleHistory.push(newSchedule);
 
+        // // Keep only the last 5 schedules
+        // if (division.scheduleHistory.length > 5) {
+        //     division.scheduleHistory.shift();
+        // }
 
         // Reset games played count
         for (let team of division.teams) {
@@ -694,12 +677,77 @@ app.get('/league/:leagueID/division/:divisionID/schedule', function (req, res) {
             }
 
             console.log('New Schedule written to file successfully');
-            // console.log(newSchedule);
             res.status(200).json({ message: 'Schedule generated and saved successfully', schedule: newSchedule });
         });
     });
     console.log("After fs.readFile");
 });
+
+// Endpoint to retrieve a specific schedule by index from history
+app.get('/league/:leagueID/division/:divisionID/schedule/:index', function (req, res) {
+    console.log("Received Index Request");
+    const filePath = path.join(__dirname, "leagues.json");
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            console.error('Error reading file:', err);
+            res.status(500).json({ error: "Failed to read data file" });
+            return;
+        }
+
+        let parseData;
+        try {
+            parseData = JSON.parse(data);
+        } catch (parseErr) {
+            console.error('Error parsing JSON:', parseErr);
+            res.status(500).json({ error: "Failed to parse data file" });
+            return;
+        }
+
+        const leagueID = parseInt(req.params.leagueID, 10);
+        const divisionID = parseInt(req.params.divisionID, 10);
+        const index = parseInt(req.params.index, 10);
+
+        const league = parseData.leagues.find(league => league.id === leagueID);
+        if (!league) {
+            res.status(404).json({ error: "League not found" });
+            return;
+        }
+
+        const division = league.divisions.find(division => division.divisionID === divisionID);
+        if (!division) {
+            res.status(404).json({ error: "Division not found" });
+            return;
+        }
+
+        console.log("Received index " + index);
+        division.lastAccessedSchedule = index;
+        console.log(division);
+        // for(let i = 0; i < division.scheduleHistory[0][0].length; i++)
+        // {
+        //     console.log(division.scheduleHistory[0][0][i].match);
+        // }
+        // if (index < 0 || index >= division.scheduleHistory.length) {
+        //     res.status(404).json({ error: "Schedule not found" });
+        //     return;
+        // }
+
+
+        console.log("Return: ");
+        console.log(division.scheduleHistory[index]);
+        
+        fs.writeFile(__dirname + "/leagues.json", JSON.stringify(parseData, null, 2), (writeErr) => {
+            if (writeErr) {
+                console.error('Error writing to file:', writeErr);
+                return res.status(500).send('An error occurred while saving the file.');
+            }
+
+            console.log('File updated successfully');
+        });
+
+        res.status(200).json({ schedule: division.scheduleHistory[index] });
+    });
+});
+
 
 
 app.get('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
@@ -708,6 +756,7 @@ app.get('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
     const leagueID = parseInt(req.params.leagueID, 10);
 
     fs.readFile(__dirname + "/leagues.json", 'utf8', (err, data) => {
+        console.log("Entered read");
         if (err) {
             console.error("Error reading file:", err);
             res.status(500).json({ error: "Error reading file" });
@@ -951,6 +1000,80 @@ app.get('/league/:leagueID/division/:divisionID/timeslot/:timeslotID', (req, res
 });
 
 const jsonFilePath = path.join(__dirname, 'leagues.json');
+
+app.put('/league/:leagueID/division/:divisionID/lastSchedule/:lastScheduleID', (req, res) => {
+    console.log("Received lastSchedule request");
+    const leagueID = parseInt(req.params.leagueID, 10);
+    const divisionID = parseInt(req.params.divisionID, 10);
+    const lastScheduleID = parseInt(req.params.lastScheduleID, 10);
+    console.log(leagueID);
+    console.log(divisionID);
+    console.log("Last Schedule ID: " + lastScheduleID);
+
+    if (!leagueID || !divisionID || !lastScheduleID) {
+        console.log(leagueID);
+        console.log(divisionID);
+        console.log(lastScheduleID);
+        // if(lastScheduleID != 0)
+        // {
+        //     console.error('Missing parameters');
+        //     return res.status(400).send('Missing parameters.');
+        // }
+
+    }
+
+    // fs.readFile(__dirname + "/leagues.json", 'utf8', (err, data) => {
+    //     if (err) {
+    //         console.error('Error reading file:', err);
+    //         return res.status(500).send('An error occurred while reading the file.');
+    //     }
+
+    //     console.log('File read successfully');
+
+    //     let parseData;
+    //     try {
+    //         parseData = JSON.parse(data);
+    //     } catch (jsonErr) {
+    //         console.error("Error parsing JSON:", jsonErr);
+    //         res.status(500).json({ error: "Error parsing JSON" });
+    //         return;
+    //     }
+
+    //     const league = parseData.leagues.find(league => league.id === leagueID);
+    //     if (!league) {
+    //         console.log('League not found');
+    //         return res.status(404).send('League not found.');
+    //     }
+
+    //     const division = league.divisions.find(division => division.divisionID === divisionID);
+    //     if (!division) {
+    //         console.log('Division not found');
+    //         return res.status(404).send('Division not found.');
+    //     }
+
+
+    //     division.lastAccessedSchedule = lastScheduleID;
+    //     console.log("Final value " + division.lastAccessedSchedule);
+    //     console.log(division);
+
+
+        // fs.writeFile(__dirname + "/leagues.json", JSON.stringify(parseData, null, 2), (writeErr) => {
+        //     if (writeErr) {
+        //         console.error('Error writing to file:', writeErr);
+        //         return res.status(500).send('An error occurred while saving the file.');
+        //     }
+
+        //     console.log('File updated successfully');
+        // });
+
+    // })
+
+    res.status(200).send({ message: "lastAccessedSchedule updated successfully" });
+
+
+
+
+})
 
 
 app.put('/league/:leagueID/division/:divisionID/team/:teamID', (req, res) => {
@@ -1398,7 +1521,7 @@ app.delete('/leagues/:leagueID/divisions/:divisionID/teams/:teamID', function (r
         const divisionID = parseInt(req.params.divisionID, 10);
         const teamID = parseInt(req.params.teamID, 10);
 
-        console.log("temID "+teamID);
+        console.log("temID " + teamID);
 
         // Find the league
         const league = parseData.leagues.find(league => league.id === leagueID);

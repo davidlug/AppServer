@@ -94,155 +94,104 @@ function matchupGenerator(teams) {
     }
     return matchups;
 }
-function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, oldSchedule) {
-    // console.log("Received teamsGamesPlayed");
-    // console.log(teamsGamesPlayed);
+function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, oldSchedule, freezeWeeks) {
 
     function schedule() {
-        console.log("Entered schedule() method");
-        for(let i = 0; i < scheduleByWeeks.length; i++)
-        {
-            console.log(i+1);
-        }
-
         let seasonMatchups = [...matchups];
         let tempSchedule = JSON.parse(JSON.stringify(scheduleByWeeks)); // Create a deep copy of the schedule
         let tempTeams = JSON.parse(JSON.stringify(teams)); // Create a deep copy of the teams array
 
         if (teams.length % 2 == 0) {
-            console.log("Entered even loop");
-            //Entry point for specific week
-
             for (let k = 0; k < tempSchedule.length; k++) {
-                
-
                 let weekMatchups = [...seasonMatchups];
-
                 let teamCopy = [...tempTeams];
                 let teamsScheduledThisWeek = new Set();
 
-                //Entry point for specific timeslot in week
-
                 function generateWeekSchedule() {
-
                     for (let i = 0; i < tempSchedule[k].length; i++) {
-
                         teamsScheduledThisWeek.clear();
 
                         if (weekMatchups.length === 0) {
-                            console.log("weekMatchups is empty");
+                            //console.log("weekMatchups is empty");
                             return false;
                         }
-                        const index = Math.floor(Math.random() * weekMatchups.length);
 
-                        let chosenMatch = weekMatchups.splice(index, 1)[0];
+                        let chosenMatch = null;
 
+                        if (tempSchedule[k][i].week <= freezeWeeks) {
+                            // Freeze this week's match, reuse from oldSchedule
+                            chosenMatch = oldSchedule[k][i].match;
+                        } else {
+                            // Select a random match from the available matchups
+                            const index = Math.floor(Math.random() * weekMatchups.length);
+                            chosenMatch = weekMatchups.splice(index, 1)[0];
 
-                        if (chosenMatch == null) {
-                            return oldSchedule;
-                        }
-
-                        // Ensure chosen match teams are not scheduled twice in the week
-                        if (teamsScheduledThisWeek.has(chosenMatch.homeTeam.teamName) || teamsScheduledThisWeek.has(chosenMatch.awayTeam.teamName)) {
-                            teamsScheduledThisWeek.clear();
-                            return (false);
-                        }
-
-                        let teamsOnThisDay = [];
-
-                        for(let a = 0; a < tempSchedule.length; a++)
-                        {
-                            for(let b = 0; b < tempSchedule[a].length; b++)
-                            {
-                                if(tempSchedule[a][b].match != null)
-                                {
-                                   
-                                    if(tempSchedule[a][b].date == tempSchedule[k][i].date)
-                                    {
-                                        teamsOnThisDay.push(tempSchedule[a][b].match.homeTeam.teamName);
-                                        teamsOnThisDay.push(tempSchedule[a][b].match.awayTeam.teamName);
-                                        teamsOnThisDay.push(chosenMatch.homeTeam.teamName);
-                                        teamsOnThisDay.push(chosenMatch.awayTeam.teamName);
-                                       
-                                        //     || chosenMatch.awayTeam.teamName == tempSchedule[a][b].match.homeTeam.teamName || chosenMatch.awayTeam.teamName == tempSchedule[a][b].match.awayTeam.teamName)
-                                        //     {
-                                        //         console.log("Issue detected 173");
-                                        //         console.log(tempSchedule[a][b]);
-                                        //         console.log(tempSchedule[k][i]);
-                                        //         return false;
-                                        //     }
-                                    }
-                                    
-                                }
-                                
+                            // Ensure chosen match teams are not scheduled twice in the week
+                            if (teamsScheduledThisWeek.has(chosenMatch.homeTeam.teamName) || 
+                                teamsScheduledThisWeek.has(chosenMatch.awayTeam.teamName)) {
+                                //console.log("Conflict: team already scheduled this week.");
+                                return false;
                             }
                         }
-                        //console.log("Teams on this day" + tempSchedule[k][i].date);
-                         //           console.log(teamsOnThisDay);
 
-                        weekMatchups = weekMatchups.filter(match =>
-                            !(match.homeTeam.teamName == chosenMatch.homeTeam.teamName || match.awayTeam.teamName == chosenMatch.awayTeam.teamName) &&
-                            !(match.awayTeam.teamName == chosenMatch.homeTeam.teamName || match.homeTeam.teamName == chosenMatch.awayTeam.teamName)
-                        );
+                        if (!chosenMatch) {
+                            //console.log("Unable to find valid matchup for this slot.");
+                            return false;
+                        }
 
-
-
+                        // Assign the chosen match to the schedule
                         tempSchedule[k][i].match = chosenMatch;
                         teamsScheduledThisWeek.add(chosenMatch.homeTeam.teamName);
                         teamsScheduledThisWeek.add(chosenMatch.awayTeam.teamName);
 
+                        // Remove the used teams from the remaining matchups
+                        weekMatchups = weekMatchups.filter(match =>
+                            !(match.homeTeam.teamName === chosenMatch.homeTeam.teamName || match.awayTeam.teamName === chosenMatch.awayTeam.teamName) &&
+                            !(match.awayTeam.teamName === chosenMatch.homeTeam.teamName || match.homeTeam.teamName === chosenMatch.awayTeam.teamName)
+                        );
                     }
 
-                    //console.log("Return tempSchedule[k]");
+                    // Update the overall seasonMatchups after a successful week
                     for (let m = 0; m < tempSchedule[k].length; m++) {
                         let chosenMatch = tempSchedule[k][m].match;
                         seasonMatchups = seasonMatchups.filter(match =>
-                            !(match.homeTeam === chosenMatch.homeTeam && match.awayTeam === chosenMatch.awayTeam) &&
-                            !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
+                            !(match.homeTeam.teamName === chosenMatch.homeTeam.teamName && match.awayTeam.teamName === chosenMatch.awayTeam.teamName) &&
+                            !(match.homeTeam.teamName === chosenMatch.awayTeam.teamName && match.awayTeam.teamName === chosenMatch.homeTeam.teamName)
                         );
-                        for (let j = 0; j < teamsGamesPlayed.length; j++) {
-                            if (chosenMatch.homeTeam.teamName === teamsGamesPlayed[j].teamName || chosenMatch.awayTeam.teamName === teamsGamesPlayed[j].teamName) {
-                                teamsGamesPlayed[j].numGames--;
-
-                            }
-                        }
                     }
+
                     return tempSchedule[k];
                 }
 
-
                 tempTeams = [...teamCopy];
-                // console.log("After k value " + k);
-                let genSchedule = generateWeekSchedule()
-                let genScheduleCheck = true;
-                if (genSchedule == false) {
-                    genScheduleCheck = false;
-                }
+                let genSchedule = generateWeekSchedule();
 
-                while (genScheduleCheck == false) {
-                    return false;
+                if (genSchedule === false) {
+                    //console.log("Retrying schedule generation...");
+                    return false; // Return false to retry the whole scheduling process if needed
                 }
             }
-
         }
+
+
         else {
-            console.log("Entered odd loop")
+            //console.log("Entered odd loop")
             let byeWeeks = [...teams];
             for (let k = 0; k < tempSchedule.length; k++) {
                 let weekMatchups = [...seasonMatchups];
                 let teamCopy = [...tempTeams];
                 let teamsScheduledThisWeek = new Set();
                 let byeTeam = byeWeeks[0];
-                console.log("byeTeam");
-                console.log(byeTeam);
+                // console.log("byeTeam");
+                // console.log(byeTeam);
 
                 teamsGamesPlayed = teamsGamesPlayed.filter(team => team.numGames > 0);
                 weekMatchups = weekMatchups.filter(match => match.homeTeam.teamName != byeTeam.teamName && match.awayTeam.teamName != byeTeam.teamName);
                 byeWeeks = byeWeeks.filter(team => team.teamName != byeTeam.teamName);
-                console.log(byeWeeks);
+                // console.log(byeWeeks);
 
-                console.log("Checking");
-                console.log(teamsGamesPlayed);
+                // console.log("Checking");
+                // console.log(teamsGamesPlayed);
 
                 // Sort teams by the number of games played in ascending order
                 teamsGamesPlayed.sort((a, b) => a.numGames - b.numGames);
@@ -252,7 +201,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
                     teamsGamesPlayed.slice(0, 2).some(team => team.teamName === match.homeTeam.teamName || team.teamName === match.awayTeam.teamName)
                 );
 
-                for (let i = 0; i < tempSchedule[k].length; i++) { 
+                for (let i = 0; i < tempSchedule[k].length; i++) {
 
                     // if(weekMatchups.length == 0)
                     //     {
@@ -262,10 +211,18 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
 
 
                     let chosenMatch;
-                    console.log("249 weekMatchups");
-                    console.log(weekMatchups);
+                    // console.log("Freeze Weeks " + freezeWeeks);
+                    // console.log(oldSchedule);
+                    if (tempSchedule[k][i].week <= freezeWeeks) {
+                        // Freeze this week's match, reuse from oldSchedule
+                        chosenMatch = oldSchedule[k][i].match;
+                    } else {
+                        
+                    
+                    // console.log("249 weekMatchups");
+                    // console.log(weekMatchups);
                     if (weekMatchups.length == 0) {
-                        console.log("weekMatchups is empty 253");
+                        //console.log("weekMatchups is empty 253");
                         return false;
                     }
                     // console.log("Priority");
@@ -276,27 +233,27 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
                         const index = Math.floor(Math.random() * prioritizedMatchups.length);
                         chosenMatch = prioritizedMatchups.splice(index, 1)[0];
                     } else {
-                        console.log("Cannot prioritize. Reselect");
-                        console.log(weekMatchups);
+                        // console.log("Cannot prioritize. Reselect");
+                        // console.log(weekMatchups);
                         if (weekMatchups.length === 0) {
                             console.log("Loop Season");
                             //weekMatchups = matchups.filter(match => match.homeTeam.numGames != 0 && match.awayTeam.numGames != 0);
                             //weekMatchups = matchups.filter(match => match.homeTeam.teamName != byeTeam.teamName && match.awayTeam.teamName != byeTeam.teamName)
-                            console.log(byeTeam.teamName);
+                            //console.log(byeTeam.teamName);
 
                         }
                         const index = Math.floor(Math.random() * weekMatchups.length);
                         chosenMatch = weekMatchups.splice(index, 1)[0];
                     }
 
-                    console.log("weekMatchups 270");
-                    console.log(weekMatchups);
+                    // console.log("weekMatchups 270");
+                    // console.log(weekMatchups);
 
 
-                    console.log("Chosen Match");
-                    console.log(chosenMatch.homeTeam.teamName + " vs " + chosenMatch.awayTeam.teamName);
-                    console.log("Week Matchups");
-                    console.log(weekMatchups.map(match => match.homeTeam.teamName + " vs " + match.awayTeam.teamName));
+                    // console.log("Chosen Match");
+                    // console.log(chosenMatch.homeTeam.teamName + " vs " + chosenMatch.awayTeam.teamName);
+                    // console.log("Week Matchups");
+                    // console.log(weekMatchups.map(match => match.homeTeam.teamName + " vs " + match.awayTeam.teamName));
                     if (chosenMatch == undefined) {
                         console.log("Have to exit");
                         return oldSchedule;
@@ -308,6 +265,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
                         i--; // Retry this time slot
                         return false;
                     }
+                }
 
                     weekMatchups = weekMatchups.filter(match =>
                         !(match.homeTeam.teamName == chosenMatch.homeTeam.teamName || match.awayTeam.teamName == chosenMatch.awayTeam.teamName) &&
@@ -353,30 +311,30 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
                 }
 
                 tempTeams = [...teamCopy];
-                console.log("After k value " + k);
-                console.log(tempSchedule[k]);
+                // console.log("After k value " + k);
+                // console.log(tempSchedule[k]);
                 for (let i = 0; i < tempSchedule[k].length; i++) {
                     let selectMatch = tempSchedule[k][i].match;
                     let selectHomeTeam = selectMatch.homeTeam.teamName;
-                    console.log("Remove " + selectHomeTeam);
+                    //console.log("Remove " + selectHomeTeam);
                     let selectAwayTeam = selectMatch.awayTeam.teamName;
-                    console.log("Remove " + selectAwayTeam);
+                    //console.log("Remove " + selectAwayTeam);
                     //byeWeeks = byeWeeks.filter(team => !(team.teamName == selectHomeTeam || team.teamName == selectAwayTeam));
 
 
                 }
-                console.log("byeWeeks");
-                console.log(byeWeeks);
+                // console.log("byeWeeks");
+                // console.log(byeWeeks);
             }
         }
-        console.log("Original Schedule ")
+        //console.log("Original Schedule ")
         return tempSchedule;
     }
 
 
-
+    //console.log("275 enter returnSchedule");
     let returnSchedule = schedule();
-    console.log("returnSchedule value " + returnSchedule);
+    //console.log("returnSchedule value " + returnSchedule);
     if (returnSchedule == false) {
         return false;
     }
@@ -390,7 +348,7 @@ function generateSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, ol
 
 function generateExtraSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlayed, originalSchedule) {
     const MAX_RETRIES = 1; // Set a maximum number of retries to avoid infinite loops
-    console.log("Inside generateExtraSchedule");
+    //console.log("Inside generateExtraSchedule");
 
     function schedule() {
         const tempSchedule = JSON.parse(JSON.stringify(scheduleByWeeks)); // Create a deep copy of the schedule
@@ -424,9 +382,9 @@ function generateExtraSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlaye
                     if (originalSchedule[a][b].date == tempSchedule[k].date) {
                         console.log("Same date matchup");
                         console.log(originalSchedule[a][b].match.homeTeam.teamName + " vs " + originalSchedule[a][b].match.awayTeam.teamName);
-                        tempMatchups[k] = tempMatchups[k].filter(match => 
+                        tempMatchups[k] = tempMatchups[k].filter(match =>
                             !(match.homeTeam.teamName == originalSchedule[a][b].match.homeTeam.teamName || match.homeTeam.teamName == originalSchedule[a][b].match.awayTeam.teamName ||
-                              match.awayTeam.teamName == originalSchedule[a][b].match.homeTeam.teamName || match.awayTeam.teamName == originalSchedule[a][b].match.awayTeam.teamName));
+                                match.awayTeam.teamName == originalSchedule[a][b].match.homeTeam.teamName || match.awayTeam.teamName == originalSchedule[a][b].match.awayTeam.teamName));
                     }
                 }
             }
@@ -476,7 +434,6 @@ function generateExtraSchedule(matchups, scheduleByWeeks, teams, teamsGamesPlaye
 
 function main(teams, timeSlots, lastWeek, oldSchedule) {
     let teamsGamesPlayed = [...teams];
-    var teamCopy = teams.map(team => ({ ...team, weight: 0 }));
     let numGameValues = [];
 
     for (let i = 0; i < teams.length; i++) {
@@ -490,7 +447,6 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
 
     let matchups = matchupGenerator(teams);
 
-    const numWeek = timeSlots[timeSlots.length - 1].week;
 
     timeSlots.sort((a, b) => a.week - b.week);
 
@@ -513,58 +469,71 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
     }
 
     let freezeWeeks = lastWeek || 0;
+    // console.log("Requested Frozen Weeks");
+    // console.log(freezeWeeks);
     let frozenSchedule = null;
     if (oldSchedule != undefined) {
         frozenSchedule = oldSchedule.slice(0, freezeWeeks);
     }
-    let scheduleToGenerate = scheduleByWeeks.slice(freezeWeeks);
+    // let scheduleToGenerate = scheduleByWeeks.slice(freezeWeeks);
+    let scheduleToGenerate = scheduleByWeeks;
+    // console.log("Frozen Schedule");
+    // console.log(frozenSchedule);
+    // if (frozenSchedule != undefined) {
 
-    if (frozenSchedule != undefined) {
 
+    //     for (let i = 0; i < frozenSchedule.length; i++) {
+    //         for (let k = 0; k < frozenSchedule[i].length; k++) {
+    //             let timeslot = frozenSchedule[i][k];
+    //             if (timeslot.match) {
+    //                 let chosenMatch = timeslot.match;
+    //                 matchups = matchups.filter(match =>
+    //                     !(match.homeTeam === chosenMatch.homeTeam && match.awayTeam === chosenMatch.awayTeam) &&
+    //                     !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
+    //                 );
+    //             }
+    //         }
+    //     }
 
-        for (let i = 0; i < frozenSchedule.length; i++) {
-            for (let k = 0; k < frozenSchedule[i].length; k++) {
-                let timeslot = frozenSchedule[i][k];
-                if (timeslot.match) {
-                    let chosenMatch = timeslot.match;
-                    matchups = matchups.filter(match =>
-                        !(match.homeTeam === chosenMatch.homeTeam && match.awayTeam === chosenMatch.awayTeam) &&
-                        !(match.homeTeam === chosenMatch.awayTeam && match.awayTeam === chosenMatch.homeTeam)
-                    );
-                }
-            }
-        }
+    //     for (let i = 0; i < frozenSchedule.length; i++) {
+    //         for (let p = 0; p < frozenSchedule[i].length; p++) {
+    //             for (let k = 0; k < teams.length; k++) {
+    //                 if (frozenSchedule[i][p].match) {
+    //                     if (frozenSchedule[i][p].match.homeTeam.teamName === teams[k].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teams[k].teamName) {
+    //                         teams[k].gamesPlayed++;
+    //                     }
 
-        for (let i = 0; i < frozenSchedule.length; i++) {
-            for (let p = 0; p < frozenSchedule[i].length; p++) {
-                for (let k = 0; k < teams.length; k++) {
-                    if (frozenSchedule[i][p].match) {
-                        if (frozenSchedule[i][p].match.homeTeam.teamName === teams[k].teamName || frozenSchedule[i][p].match.awayTeam.teamName === teams[k].teamName) {
-                            teams[k].gamesPlayed++;
-                        }
+    //                 }
+    //             }
+    //         }
 
-                    }
-                }
-            }
-
-        }
-    }
+    //     }
+    // }
 
     let scheduleSections = [];
 
     if (teams.length % 2 == 0) {
 
+        //console.log("504 freeze weeks "+freezeWeeks);
+
         let numberRepeats = Math.floor(scheduleToGenerate.length / teams.length);
         let backup = scheduleToGenerate;
+        // console.log(backup);
+        // console.log("Backup");
         let start = 0;
         let end = teams.length - 1;
-        for (let i = 0; i < numberRepeats + 2; i++) {
+        for (let i = 0; i < numberRepeats + 3; i++) {
             scheduleToGenerate = backup.slice(start, end);
+            // console.log("scheduleToGenerate");
+            // console.log(scheduleToGenerate);
+            // console.log("Sliced " + start + " and " + end);
             scheduleSections.push(scheduleToGenerate);
             start = start + teams.length - 1;
             end = end + teams.length - 1;
+            //console.log("New start " + start + " new end " + end);
             if (end > backup.length) {
                 end = backup.length;
+                //console.log("Switched end " + end);
             }
         }
 
@@ -574,6 +543,7 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
         let numberRepeats = Math.ceil(scheduleToGenerate.length / teams.length);
 
         let backup = scheduleToGenerate;
+
         let start = 0;
         let end = teams.length;
         for (let i = 0; i < numberRepeats; i++) {
@@ -587,6 +557,7 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
             }
         }
         repeatSchedule = backup.slice(teams.length - 1);
+
     }
 
 
@@ -597,20 +568,23 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
         scheduleSections[z] = scheduleSections[z].filter(subsection => subsection.length > 0);
     }
     scheduleSections = scheduleSections.filter(m => m.length > 0);
+    // console.log("Schedule Sections");
+    // console.log(scheduleSections);
     let teamsGamesPlayedBackup = JSON.parse(JSON.stringify(teamsGamesPlayed))
     for (let i = 0; i < scheduleSections.length; i++) {
-        generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayed, oldSchedule);
-        
+        generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayed, oldSchedule, freezeWeeks);
+
 
         while (generated == false) {
-            generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayedBackup, oldSchedule);
+            //console.log("613 reprint");
+            generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayedBackup, oldSchedule, freezeWeeks);
         }
 
         if (generated === null) {
             throw new Error("Failed to generate schedule for section " + i);
         }
         returnSchedule[0].push(...generated);
-        
+
     }
 
     let balancedSchedule = false;
@@ -629,6 +603,8 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
     }
 
     let weights = teams.map(team => team.weight);
+    // console.log("Weights");
+    // console.log(weights);
 
 
     teams.map((team, index) => {
@@ -642,52 +618,89 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
         teams[i].weight = weights[i];
     }
 
+    // console.log("Updated teams");
+    // console.log(teams);
 
     let minWeight = Math.min(...weights);
     let maxWeight = Math.max(...weights);
 
-    balancedSchedule = (maxWeight - minWeight <= 0.15);
+    balancedSchedule = (maxWeight - minWeight <= 0);
+
+    console.log("Successful Schedule");
 
 
-    while (!balancedSchedule) {
-        for (let i = 0; i < scheduleSections.length; i++) {
-            generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayed, oldSchedule);
-            if (generated === null) {
-                throw new Error("Failed to generate schedule for section " + i);
+    let tolerance = 0.0;
+    const maxToleranceAttempts = 20;
+    const maxToleranceValue = 1;  // You can set this based on how far you want to increase the tolerance
+
+    while (tolerance <= maxToleranceValue && !balancedSchedule) {
+        for (let attempt = 1; attempt <= maxToleranceAttempts; attempt++) {
+            //console.log("Regen");
+            returnSchedule[0] = [];
+            //console.log(`Regenerate schedule (Attempt ${attempt} with tolerance ${tolerance})`);
+            for (let i = 0; i < scheduleSections.length; i++) {
+                generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayed, oldSchedule, freezeWeeks);
+
+
+                while (generated == false) {
+                    //console.log("676 reprint");
+                    generated = generateSchedule(matchups, scheduleSections[i], teams, teamsGamesPlayedBackup, oldSchedule, freezeWeeks);
+                }
+
+                if (generated === null) {
+                    throw new Error("Failed to generate schedule for section " + i);
+                }
+                returnSchedule[0].push(...generated);
+
             }
-            if (generated == false) {
-                console.log("Error! Returned schedule is false!");
+
+            for (let m = 0; m < teams.length; m++) {
+                let tempWeight = 0;
+                for (let i = 0; i < returnSchedule[0].length; i++) {
+                    for (let p = 0; p < returnSchedule[0][i].length; p++) {
+                        if (teams[m].teamName === returnSchedule[0][i][p].match.homeTeam.teamName ||
+                            teams[m].teamName === returnSchedule[0][i][p].match.awayTeam.teamName) {
+                            tempWeight += returnSchedule[0][i][p].weight;
+                        }
+                    }
+                }
+                teams[m].weight = tempWeight / returnSchedule[0].length;
             }
+
+            let weights = teams.map(team => team.weight);
+            // console.log("Recheck weights");
+            // console.log(weights);
+
+            let minWeight = Math.min(...weights);
+            let maxWeight = Math.max(...weights);
+
+            //console.log("Difference: " + (maxWeight - minWeight));
+
+            balancedSchedule = (maxWeight - minWeight <= tolerance);
+
+            if (balancedSchedule) {
+                console.log("Successfully generated a balanced schedule.");
+                break;  // Exit the inner loop since a balanced schedule was found
+            }
+
+            //console.log(`Failed attempt ${attempt} with tolerance ${tolerance}.`);
         }
 
-        let weights = teamCopy.map(team => team.weight);
-        teams.map((team, index) => {
-            return {
-                ...team,
-                assignedWeight: weights[index]
-            };
-        });
-
-        for (let i = 0; i < weights.length; i++) {
-            teams[i].weight = weights[i];
+        if (!balancedSchedule) {
+            tolerance += 0.01;
+            console.log(`Increasing tolerance to ${tolerance} and retrying.`);
         }
-
-        let minWeight = Math.min(...weights);
-        let maxWeight = Math.max(...weights);
-
-        balancedSchedule = (maxWeight - minWeight <= 0.15);
     }
 
-      teams.forEach(team => team.gamesPlayed = 0);
+    if (!balancedSchedule) {
+        throw new Error("Failed to generate a balanced schedule within the allowed tolerance range.");
+    }
+
+    teams.forEach(team => team.gamesPlayed = 0);
 
     let finalSchedule = null;
 
-    if (frozenSchedule == null || frozenSchedule == undefined) {
-        finalSchedule = returnSchedule[0]
-    }
-    else {
-        finalSchedule = frozenSchedule.concat(returnSchedule[0]);
-    }
+    finalSchedule = returnSchedule[0];
 
     let leftoverMatchupsArray = [];
     let leftOverTeams = [];
@@ -710,73 +723,69 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
 
     for (let i = 0; i < finalSchedule.length; i++) {
         leftoverMatchupsArray.push([]); // Initialize sub-array for the current week
-    
+
         let weeklyLeftoverTeams = leftOverTeams[i]; // Get the leftover teams for the current week
-    
+
         for (let p = 0; p < weeklyLeftoverTeams.length; p++) {
             for (let k = 0; k < matchups.length; k++) {
                 let chosenMatch = matchups[k];
                 let homeTeam = chosenMatch.homeTeam.teamName;
                 let awayTeam = chosenMatch.awayTeam.teamName;
-    
+
                 // Check if the matchup involves the leftover team
                 if (weeklyLeftoverTeams.some(team => team.teamName === homeTeam || team.teamName === awayTeam)) {
                     leftoverMatchupsArray[i].push(chosenMatch);
                 }
             }
         }
-    
+
     }
 
     let extraWeekRemove = [];
 
 
     for (let i = 0; i < leftoverMatchupsArray.length; i++) {
-    
+
         let extra = false; // Initialize the flag for bonus matchups
-    
+
         for (let p = 0; p < extraWeeks.length; p++) {
-            if (extraWeeks[p].week === (i + 1)) {      
+            if (extraWeeks[p].week === (i + 1)) {
                 extra = true; // Set flag to true since this week has bonus matchups
                 break; // Exit loop early since we've found the week
             }
         }
-    
+
         if (!extra) {
             extraWeekRemove.push((i + 1)); // Push weeks without bonus matchups
         }
     }
-    
+
 
     for (let i = 0; i < extraWeekRemove.length; i++) {
         for (let m = 0; m < leftoverMatchupsArray.length; m++) {
-            if (extraWeekRemove[i] === m+1) {
+            if (extraWeekRemove[i] === m + 1) {
                 leftoverMatchupsArray[m] = [];
             }
         }
     }
 
 
-    console.log("Final 729");
-    console.log(finalSchedule);
+    // console.log("Final 729");
+    // console.log(finalSchedule);
 
-    for(let i = 0; i < finalSchedule.length; i++)
-    {
-        for(let p = 0; p < finalSchedule[i].length; p++)
-        {
+    for (let i = 0; i < finalSchedule.length; i++) {
+        for (let p = 0; p < finalSchedule[i].length; p++) {
             let chosenMatch = finalSchedule[i][p].match;
-            for(let m = 0; m < teams.length; m++)
-            {
-                if(teams[m].teamName == chosenMatch.homeTeam.teamName || teams[m].teamName == chosenMatch.awayTeam.teamName)
-                {
+            for (let m = 0; m < teams.length; m++) {
+                if (teams[m].teamName == chosenMatch.homeTeam.teamName || teams[m].teamName == chosenMatch.awayTeam.teamName) {
                     teams[m].gamesPlayed++;
                 }
             }
         }
     }
 
-    console.log("teams 747");
-    console.log(teams);
+    // console.log("teams 747");
+    // console.log(teams);
 
     let extraSchedule;
 
@@ -813,68 +822,59 @@ function main(teams, timeSlots, lastWeek, oldSchedule) {
     }
 
 
-    if(finalSchedule.length > 1)
-    {
-        console.log("Entering final check");
-        for(let i = 1; i < finalSchedule.length; i++)
-        {
+    if (finalSchedule.length > 1) {
+        //console.log("Entering final check");
+        for (let i = 1; i < finalSchedule.length; i++) {
             let analyzeWeeks = finalSchedule.slice(0, i);
             let currentWeek = finalSchedule[i];
 
 
-            for(let m = 0; m < currentWeek.length; m++)
-            {
+            for (let m = 0; m < currentWeek.length; m++) {
                 let currentDate = currentWeek[m].date;
                 let currentMatch = currentWeek[m].match;
-                for(let k = 0; k < analyzeWeeks.length; k++)
-                {
-                    for(let o = 0; o < analyzeWeeks[k].length; o++)
-                        {
-                            let selectDate = analyzeWeeks[k][o].date;
-                            let selectMatch = analyzeWeeks[k][o].match;
-                            if(selectDate == currentDate)
-                            {
-                                console.log("Check match");
-                                console.log(selectDate);
-                                
-                                if(selectMatch.homeTeam.teamName == currentMatch.homeTeam.teamName 
-                                    || selectMatch.awayTeam.teamName == currentMatch.homeTeam.teamName 
-                                    || selectMatch.homeTeam.teamName == currentMatch.awayTeam.teamName 
-                                    || selectMatch.awayTeam.teamName == currentMatch.awayTeam.teamName)
-                                    {
-                                        console.log("Flagged");
-                                        console.log(selectMatch.homeTeam.teamName + " vs "+ selectMatch.awayTeam.teamName);
-                                        console.log(currentMatch.homeTeam.teamName + " vs "+ currentMatch.awayTeam.teamName);
-                                        console.log("Choose from");
-                                        console.log(currentWeek.map(section => section.match.homeTeam.teamName + " vs "+ section.match.awayTeam.teamName));
-                                        for(let a = 0; a < currentWeek.length; a++)
-                                        {
-                                            if(currentWeek[a].match.homeTeam.teamName != selectMatch.homeTeam.teamName 
-                                                && currentWeek[a].match.homeTeam.teamName != selectMatch.awayTeam.teamName 
-                                                && currentWeek[a].match.awayTeam.teamName != selectMatch.homeTeam.teamName 
-                                                && currentWeek[a].match.awayTeam.teamName != selectMatch.awayTeam.teamName)
-                                                {
-                                                    console.log("Can swap " + currentMatch.homeTeam.teamName + " vs " + currentMatch.awayTeam.teamName+ " with " + currentWeek[a].match.homeTeam.teamName + " vs " + currentWeek[a].match.awayTeam.teamName);
-                                                    console.log(currentWeek[m]);
-                                                    console.log(currentWeek[a]);
-                                                    let tempMatch = currentWeek[m].match;
-                                                    currentWeek[m].match = currentWeek[a].match;
-                                                    currentWeek[a].match = tempMatch;
-                                                }
-                                        }
+                for (let k = 0; k < analyzeWeeks.length; k++) {
+                    for (let o = 0; o < analyzeWeeks[k].length; o++) {
+                        let selectDate = analyzeWeeks[k][o].date;
+                        let selectMatch = analyzeWeeks[k][o].match;
+                        if (selectDate == currentDate) {
+                            console.log("Check match");
+                            console.log(selectDate);
+
+                            if (selectMatch.homeTeam.teamName == currentMatch.homeTeam.teamName
+                                || selectMatch.awayTeam.teamName == currentMatch.homeTeam.teamName
+                                || selectMatch.homeTeam.teamName == currentMatch.awayTeam.teamName
+                                || selectMatch.awayTeam.teamName == currentMatch.awayTeam.teamName) {
+                                console.log("Flagged");
+                                console.log(selectMatch.homeTeam.teamName + " vs " + selectMatch.awayTeam.teamName);
+                                console.log(currentMatch.homeTeam.teamName + " vs " + currentMatch.awayTeam.teamName);
+                                console.log("Choose from");
+                                console.log(currentWeek.map(section => section.match.homeTeam.teamName + " vs " + section.match.awayTeam.teamName));
+                                for (let a = 0; a < currentWeek.length; a++) {
+                                    if (currentWeek[a].match.homeTeam.teamName != selectMatch.homeTeam.teamName
+                                        && currentWeek[a].match.homeTeam.teamName != selectMatch.awayTeam.teamName
+                                        && currentWeek[a].match.awayTeam.teamName != selectMatch.homeTeam.teamName
+                                        && currentWeek[a].match.awayTeam.teamName != selectMatch.awayTeam.teamName) {
+                                        console.log("Can swap " + currentMatch.homeTeam.teamName + " vs " + currentMatch.awayTeam.teamName + " with " + currentWeek[a].match.homeTeam.teamName + " vs " + currentWeek[a].match.awayTeam.teamName);
+                                        console.log(currentWeek[m]);
+                                        console.log(currentWeek[a]);
+                                        let tempMatch = currentWeek[m].match;
+                                        currentWeek[m].match = currentWeek[a].match;
+                                        currentWeek[a].match = tempMatch;
                                     }
+                                }
                             }
                         }
+                    }
                 }
             }
         }
     }
-    
 
 
 
-    
-    
+
+
+
 
     return finalSchedule;
 }
